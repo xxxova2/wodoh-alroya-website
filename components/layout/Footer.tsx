@@ -1,163 +1,171 @@
-"use client";
+"use client"
 
-import Link from "next/link";
-import { useLocale, useTranslations } from "next-intl";
-import {
-  Image,
-  X,
-  Briefcase,
-  Play,
-  Music2,
-  MessageCircle,
-  MapPin,
-  Phone,
-  Mail,
-  ArrowUp,
-} from "lucide-react";
-import { siteConfig } from "@/lib/constants";
+import Link from "next/link"
+import { useLocale } from "next-intl"
+import { siteConfig } from "@/lib/constants"
 
-const socialLinks = [
-  { icon: Image, href: siteConfig.social.instagram, label: "Instagram" },
-  { icon: X, href: siteConfig.social.twitter, label: "X" },
-  { icon: Briefcase, href: siteConfig.social.linkedin, label: "LinkedIn" },
-  { icon: Play, href: siteConfig.social.youtube, label: "YouTube" },
-  { icon: Music2, href: siteConfig.social.tiktok, label: "TikTok" },
-  { icon: MessageCircle, href: siteConfig.social.snapchat, label: "Snapchat" },
-];
+const socials = [
+  {
+    label: "LinkedIn",
+    href: siteConfig.social.linkedin,
+    path: "M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z",
+  },
+  {
+    label: "Instagram",
+    href: siteConfig.social.instagram,
+    path: "M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z",
+  },
+  {
+    label: "X",
+    href: siteConfig.social.twitter,
+    path: "M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z",
+  },
+  {
+    label: "YouTube",
+    href: siteConfig.social.youtube,
+    path: "M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z",
+  },
+  {
+    label: "TikTok",
+    href: siteConfig.social.tiktok,
+    path: "M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z",
+  },
+]
+
+const quickLinks = [
+  { href: "", key: "home" },
+  { href: "#about", key: "about" },
+  { href: "#services", key: "services" },
+  { href: "#portfolio", key: "portfolio" },
+  { href: "#contact", key: "contact" },
+  { href: "careers", key: "careers" },
+]
 
 export default function Footer() {
-  const locale = useLocale();
-  const t = useTranslations("footer");
-  const tNav = useTranslations("nav");
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+  const locale = useLocale()
+  const isRtl = locale === "ar"
 
   return (
-    <footer className="bg-neutral-dark text-white relative overflow-hidden">
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-10 end-10 w-64 h-64 bg-primary-gold rounded-full blur-3xl" />
-        <div className="absolute bottom-10 start-10 w-48 h-48 bg-primary-blue-light rounded-full blur-3xl" />
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          <div>
+    <footer className="bg-on-background text-surface border-t-2 border-outline/20">
+      <div className="px-margin-mobile md:px-margin-desktop py-16 max-w-max-width mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+          {/* Brand */}
+          <div className="md:col-span-1">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-full bg-gradient-gold flex items-center justify-center">
-                <span className="text-white font-bold text-xl">و</span>
+              <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
+                <img src="/logo.jpg" alt="وضوح الرؤية" className="w-8 h-8 object-contain rounded" />
               </div>
               <div>
-                <h3 className="font-arabic-heading text-xl font-bold text-white">
+                <h3 className="text-headline-md font-headline font-bold text-surface">
                   {locale === "ar" ? "وضوح الرؤية" : "Wodoh Alroya"}
                 </h3>
-                <p className="text-primary-gold text-xs tracking-wider">
+                <p className="text-surface-variant/60 text-label-sm uppercase tracking-wider mt-0.5">
                   {locale === "ar" ? "للدعاية والإعلان" : "Advertising"}
                 </p>
               </div>
             </div>
-            <p className="text-white/60 text-sm leading-relaxed">
+            <p className="text-surface-variant/70 font-body-md leading-relaxed max-w-xs">
               {locale === "ar"
                 ? "شريكك الموثوق في عالم الدعاية والإعلان وإدارة الفعاليات منذ 15 عاماً"
                 : "Your trusted partner in advertising and event management for over 15 years"}
             </p>
+            <div className="flex gap-3 mt-8">
+              {socials.slice(0, 3).map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 rounded-lg bg-surface/10 flex items-center justify-center hover:bg-primary hover:text-on-primary transition-all"
+                >
+                  <svg viewBox="0 0 24 24" className="w-4 h-4 fill-surface-variant group-hover:fill-on-primary">
+                    <path d={s.path} />
+                  </svg>
+                </a>
+              ))}
+            </div>
           </div>
 
+          {/* Quick Links */}
           <div>
-            <h4 className="font-arabic-heading font-bold text-lg mb-6 text-primary-gold">
-              {t("quick_links")}
+            <h4 className="font-label-sm text-surface-variant uppercase tracking-widest mb-6">
+              {isRtl ? "روابط سريعة" : "Quick Links"}
             </h4>
             <ul className="space-y-3">
-              {[
-                { href: "", key: "home" },
-                { href: "about", key: "about" },
-                { href: "services", key: "services" },
-                { href: "portfolio", key: "portfolio" },
-                { href: "contact", key: "contact" },
-                { href: "careers", key: "careers" },
-              ].map((link) => (
+              {quickLinks.map((link) => (
                 <li key={link.key}>
                   <Link
                     href={`/${locale}/${link.href}`}
-                    className="text-white/60 hover:text-primary-gold transition-colors text-sm"
+                    className="font-body-md text-surface-variant/70 hover:text-secondary-container transition-colors"
                   >
-                    {tNav(link.key)}
+                    {link.key === "home"
+                      ? isRtl ? "الرئيسية" : "Home"
+                      : link.key === "about"
+                        ? isRtl ? "من نحن" : "About"
+                        : link.key === "services"
+                          ? isRtl ? "خدماتنا" : "Services"
+                          : link.key === "portfolio"
+                            ? isRtl ? "أعمالنا" : "Portfolio"
+                            : link.key === "contact"
+                              ? isRtl ? "اتصل بنا" : "Contact"
+                              : isRtl ? "الوظائف" : "Careers"
+                    }
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
+          {/* Contact Info */}
           <div>
-            <h4 className="font-arabic-heading font-bold text-lg mb-6 text-primary-gold">
-              {t("contact_info")}
+            <h4 className="font-label-sm text-surface-variant uppercase tracking-widest mb-6">
+              {isRtl ? "معلومات التواصل" : "Contact Info"}
             </h4>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-primary-gold shrink-0 mt-0.5" />
-                <span className="text-white/60 text-sm">
-                  {locale === "ar"
-                    ? "المملكة العربية السعودية"
-                    : "Saudi Arabia"}
-                </span>
-              </li>
-              <li>
-                <a
-                  href={`tel:${siteConfig.phone}`}
-                  className="flex items-center gap-3 text-white/60 hover:text-primary-gold transition-colors text-sm"
-                >
-                  <Phone className="w-5 h-5 text-primary-gold shrink-0" />
-                  <span dir="ltr">{siteConfig.phone}</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href={`mailto:${siteConfig.email}`}
-                  className="flex items-center gap-3 text-white/60 hover:text-primary-gold transition-colors text-sm"
-                >
-                  <Mail className="w-5 h-5 text-primary-gold shrink-0" />
-                  <span>{siteConfig.email}</span>
-                </a>
-              </li>
+            <ul className="space-y-4 font-body-md text-surface-variant/70">
+              <li>{isRtl ? "المملكة العربية السعودية" : "Saudi Arabia"}</li>
+              <li className="text-surface/80 font-mono">{siteConfig.phone}</li>
+              <li className="text-surface/80">{siteConfig.email}</li>
             </ul>
           </div>
 
+          {/* Newsletter */}
           <div>
-            <h4 className="font-arabic-heading font-bold text-lg mb-6 text-primary-gold">
-              {t("follow_us")}
+            <h4 className="font-label-sm text-surface-variant uppercase tracking-widest mb-6">
+              {isRtl ? "النشرة البريدية" : "Newsletter"}
             </h4>
-            <div className="flex flex-wrap gap-3">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white/60 hover:bg-primary-gold hover:text-neutral-dark transition-all"
-                  aria-label={social.label}
-                >
-                  <social.icon className="w-5 h-5" />
-                </a>
-              ))}
+            <p className="font-body-md text-surface-variant/70 mb-6">
+              {isRtl ? "اشترك لتصلك آخر أخبارنا" : "Subscribe for updates"}
+            </p>
+            <div className="flex border-b-2 border-outline-variant pb-2">
+              <input
+                className="bg-transparent border-none focus:ring-0 w-full placeholder:text-surface-variant/40 text-surface font-body-md outline-none"
+                placeholder={isRtl ? "البريد الإلكتروني" : "Email address"}
+                type="email"
+              />
+              <button className="material-symbols-outlined text-surface-variant/60 hover:text-secondary-container transition-colors">
+                arrow_forward
+              </button>
             </div>
           </div>
         </div>
+      </div>
 
-        <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-white/40 text-sm">
-            &copy; {new Date().getFullYear()} {locale === "ar" ? "وضوح الرؤية للدعاية والإعلان" : "Wodoh Alroya"}.{" "}
-            {t("rights")}.
+      {/* Bottom bar */}
+      <div className="border-t border-outline/20">
+        <div className="px-margin-mobile md:px-margin-desktop py-6 max-w-max-width mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="font-label-sm text-surface-variant/40 tracking-wide">
+            &copy; {new Date().getFullYear()} {locale === "ar" ? "وضوح الرؤية للدعاية والإعلان" : "Wodoh Alroya Advertising"}
           </p>
-          <button
-            onClick={scrollToTop}
-            className="flex items-center gap-2 text-white/40 hover:text-primary-gold transition-colors text-sm"
-          >
-            <ArrowUp className="w-4 h-4" />
-            {locale === "ar" ? "العودة للأعلى" : "Back to top"}
-          </button>
+          <div className="flex gap-6 font-label-sm text-surface-variant/40">
+            <a href="#" className="hover:text-secondary-container transition-colors">
+              {isRtl ? "سياسة الخصوصية" : "Privacy Policy"}
+            </a>
+            <a href="#" className="hover:text-secondary-container transition-colors">
+              {isRtl ? "شروط الخدمة" : "Terms of Service"}
+            </a>
+          </div>
         </div>
       </div>
     </footer>
-  );
+  )
 }
