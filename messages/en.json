@@ -1,0 +1,131 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "contact": "Contact",
+    "careers": "Careers"
+  },
+  "hero": {
+    "title": "Wodoh Alroya",
+    "subtitle": "Your Partner in Excellence & Creativity for 15+ Years",
+    "description": "Integrated solutions in advertising, event management, printing, and logistics",
+    "cta_primary": "Get Free Consultation",
+    "cta_secondary": "View Our Work"
+  },
+  "stats": {
+    "years": "Years of Experience",
+    "projects": "Projects Completed",
+    "clients": "Clients",
+    "employees": "Employees"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Comprehensive advertising and marketing solutions",
+    "advertising": {
+      "title": "Advertising & Publicity",
+      "desc": "Innovative advertising campaigns that effectively reach your target audience"
+    },
+    "printing": {
+      "title": "Multi-Printing",
+      "desc": "High-quality digital and offset printing for all your needs"
+    },
+    "events": {
+      "title": "Events & Exhibitions",
+      "desc": "Planning, organizing and managing events, conferences and exhibitions"
+    },
+    "gifts": {
+      "title": "Gifts & Promotional",
+      "desc": "Custom gifts and creative promotional tools for your brand"
+    },
+    "technical": {
+      "title": "Technical Undertakings",
+      "desc": "Integrated technical solutions including installations and maintenance"
+    },
+    "logistics": {
+      "title": "Logistics & Hospitality",
+      "desc": "Integrated logistics services and professional hospitality for your events"
+    }
+  },
+  "portfolio": {
+    "title": "Our Portfolio",
+    "subtitle": "We take pride in delivering the best solutions for our clients",
+    "filter_all": "All",
+    "filter_government": "Government",
+    "filter_corporate": "Corporate",
+    "filter_events": "Events",
+    "view_project": "View Project",
+    "related_projects": "Related Projects"
+  },
+  "about": {
+    "title": "About Us",
+    "story": "Wodoh Alroya is a trusted 15-year-old advertising and events company, specializing in end-to-end solutions in advertising, event management, printing, and logistics. We work with leading clients in both government and private sectors.",
+    "vision": {
+      "title": "Our Vision",
+      "desc": "To be a leader in expanding our presence locally in advertising and event industry by providing diverse products and services"
+    },
+    "mission": {
+      "title": "Our Mission",
+      "desc": "To offer unique creative services based on diversity, quality, research and planning to obtain the best results"
+    },
+    "values": {
+      "title": "Our Values",
+      "customer_service": "Customer Service",
+      "customer_service_desc": "Customer service reflects our ability to meet needs and provide support before, during, and after every engagement",
+      "quality": "Quality",
+      "quality_desc": "Commitment to excellence reflected in every detail from planning and design to execution and delivery",
+      "sincerity": "Sincerity",
+      "sincerity_desc": "Sincerity is the quality of being genuine, honest, and free from deceit in all our dealings",
+      "workforce": "Workforce",
+      "workforce_desc": "We invest in a professional team with the skills and expertise needed to deliver excellence",
+      "learning": "Learning & Teaching",
+      "learning_desc": "Continuous learning is the foundation of personal and professional growth for our team"
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "We are here to help, get in touch with us",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "service": "Service Required",
+      "message": "Your Message",
+      "submit": "Send Message",
+      "success": "Your message has been sent successfully, we will contact you soon",
+      "error": "An error occurred, please try again"
+    },
+    "info": {
+      "phone": "+966592062706",
+      "email": "info@wodohalroya.com",
+      "address": "Saudi Arabia"
+    }
+  },
+  "careers": {
+    "title": "Join Our Team",
+    "subtitle": "We are looking for creative talents to join our family",
+    "apply": "Apply Now",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "position": "Position",
+      "experience": "Years of Experience",
+      "message": "Cover Letter",
+      "upload_cv": "Upload CV",
+      "submit": "Submit Application",
+      "success": "Your application has been received, we will contact you soon"
+    }
+  },
+  "footer": {
+    "rights": "All Rights Reserved",
+    "quick_links": "Quick Links",
+    "follow_us": "Follow Us",
+    "contact_info": "Contact Info"
+  },
+  "whatsapp": "Chat on WhatsApp",
+  "language_switch": "العربية",
+  "view_more": "View More",
+  "loading": "Loading..."
+}
