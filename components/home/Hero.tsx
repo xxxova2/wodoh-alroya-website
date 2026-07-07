@@ -170,18 +170,38 @@ export default function Hero() {
         </svg>
       </div>
 
-      {/* Subtle bottom blend into the page */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-surface-container/50 z-[1]" />
+      {/* Office background photo (full-bleed) */}
+      <div
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/hero-office.jpeg')" }}
+      />
+
+      {/* Beige scrim: reveal LEFT side of the photo, keep text panel on the RIGHT for both languages */}
+      <div className="absolute inset-0 z-[1] bg-gradient-to-r from-transparent via-background/40 to-background" />
+
+      {/* Logo overlay, top corner — beige chip so the white-bg logo blends on cream */}
+      <div
+        className={`absolute top-6 z-[2] ${
+          isRtl ? "right-6 md:right-12" : "left-6 md:left-12"
+        }`}
+      >
+        <div className="bg-background/85 backdrop-blur-sm rounded-lg p-2 shadow-sm ring-1 ring-on-surface/10">
+          <img
+            src="/logo.jpg"
+            alt="وضوح الرؤية"
+            className="w-16 h-16 md:w-20 md:h-20 object-contain"
+          />
+        </div>
+      </div>
 
       {/* Content */}
       <div className="relative z-10 w-full max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop pt-32 pb-24 lg:pt-36">
-        <div className={`flex flex-col lg:flex-row lg:items-center lg:gap-16 ${isRtl ? "lg:flex-row-reverse" : ""}`}>
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1], delay: 0.3 }}
-            className={`lg:w-1/2 max-w-3xl ${isRtl ? "text-right" : "text-left"}`}
-          >
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1], delay: 0.3 }}
+          className={`max-w-2xl ${isRtl ? "text-right" : "text-left"}`}
+        >
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -239,24 +259,6 @@ export default function Hero() {
             </a>
           </motion.div>
         </motion.div>
-
-        {/* Gemini hero image */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1], delay: 0.5 }}
-          className="lg:w-1/2 mt-12 lg:mt-0 w-full"
-        >
-          <div className="relative rounded-lg overflow-hidden border border-on-surface/10 shadow-2xl">
-            <img
-              src="/hero-gemini.jpeg"
-              alt={locale === "ar" ? "وضوح الرؤية" : "Wodoh Alroya"}
-              className="w-full h-auto object-cover aspect-square"
-            />
-            <div className="absolute inset-0 ring-1 ring-inset ring-on-surface/10 rounded-lg" />
-          </div>
-        </motion.div>
-        </div>
 
         {/* Scroll cue */}
         <motion.div
