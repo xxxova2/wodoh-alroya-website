@@ -174,13 +174,14 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-t from-on-background via-on-background/60 to-transparent z-[1]" />
 
       {/* Content */}
-      <div className="relative z-10 w-full max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop pt-32 pb-24">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1], delay: 0.3 }}
-          className={`max-w-3xl ${isRtl ? "text-right" : "text-left"}`}
-        >
+      <div className="relative z-10 w-full max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop pt-32 pb-24 lg:pt-36">
+        <div className={`flex flex-col lg:flex-row lg:items-center lg:gap-16 ${isRtl ? "lg:flex-row-reverse" : ""}`}>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1], delay: 0.3 }}
+            className={`lg:w-1/2 max-w-3xl ${isRtl ? "text-right" : "text-left"}`}
+          >
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -238,6 +239,24 @@ export default function Hero() {
             </a>
           </motion.div>
         </motion.div>
+
+        {/* Gemini hero image */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1], delay: 0.5 }}
+          className="lg:w-1/2 mt-12 lg:mt-0 w-full"
+        >
+          <div className="relative rounded-lg overflow-hidden border border-white/10 shadow-2xl">
+            <img
+              src="/hero-gemini.jpeg"
+              alt={locale === "ar" ? "وضوح الرؤية" : "Wodoh Alroya"}
+              className="w-full h-auto object-cover aspect-square"
+            />
+            <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-lg" />
+          </div>
+        </motion.div>
+        </div>
 
         {/* Scroll cue */}
         <motion.div
