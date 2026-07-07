@@ -17,11 +17,11 @@ const tunnelImages = [
 ]
 
 const rings = [
-  { id: "r1", scale: 0.9, opacity: 0.15, img: tunnelImages[0] },
-  { id: "r2", scale: 0.7, opacity: 0.25, img: tunnelImages[1] },
-  { id: "r3", scale: 0.5, opacity: 0.35, img: tunnelImages[2] },
-  { id: "r4", scale: 0.3, opacity: 0.45, img: tunnelImages[3] },
-  { id: "r5", scale: 0.15, opacity: 0.6, img: tunnelImages[4] },
+  { id: "r1", scale: 0.9, opacity: 0.06, img: tunnelImages[0] },
+  { id: "r2", scale: 0.7, opacity: 0.1, img: tunnelImages[1] },
+  { id: "r3", scale: 0.5, opacity: 0.14, img: tunnelImages[2] },
+  { id: "r4", scale: 0.3, opacity: 0.18, img: tunnelImages[3] },
+  { id: "r5", scale: 0.15, opacity: 0.24, img: tunnelImages[4] },
 ]
 
 export default function Hero() {
@@ -54,7 +54,7 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen flex items-center overflow-hidden bg-on-background"
+      className="relative min-h-screen flex items-center overflow-hidden bg-background"
     >
       {/* SVG Photo Tunnel Background */}
       <div
@@ -115,7 +115,7 @@ export default function Hero() {
           ))}
 
           {/* Center circle */}
-          <g opacity={0.6}>
+          <g opacity={0.18}>
             <image
               href={tunnelImages[4]}
               x="0"
@@ -139,8 +139,8 @@ export default function Hero() {
                 y1="500"
                 x2={x2}
                 y2={y2}
-                stroke="white"
-                strokeOpacity={0.12}
+                stroke="#1a1a1a"
+                strokeOpacity={0.06}
                 strokeWidth="1"
               />
             )
@@ -161,8 +161,8 @@ export default function Hero() {
                 key={`border-${i}`}
                 points={pts.join(" ")}
                 fill="none"
-                stroke="white"
-                strokeOpacity={0.08}
+                stroke="#1a1a1a"
+                strokeOpacity={0.04}
                 strokeWidth="0.5"
               />
             )
@@ -170,8 +170,8 @@ export default function Hero() {
         </svg>
       </div>
 
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-on-background via-on-background/60 to-transparent z-[1]" />
+      {/* Subtle bottom blend into the page */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-surface-container/50 z-[1]" />
 
       {/* Content */}
       <div className="relative z-10 w-full max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop pt-32 pb-24 lg:pt-36">
@@ -186,7 +186,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary/20 text-primary text-label-sm font-bold uppercase tracking-widest mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary/10 text-primary text-label-sm font-bold uppercase tracking-widest mb-6"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-green animate-pulse" />
             {locale === "ar" ? "ريادة سعودية منذ 2009" : "Saudi leadership since 2009"}
@@ -196,7 +196,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.8 }}
-            className="text-display-lg font-display font-extrabold text-white mb-6 leading-tight"
+            className="text-display-lg font-display font-extrabold text-on-surface mb-6 leading-tight"
           >
             {locale === "ar" ? (
               <>وضوح<br />الرؤية</>
@@ -209,7 +209,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9, duration: 0.8 }}
-            className="text-body-lg text-white/80 max-w-xl mb-10 leading-relaxed"
+            className="text-body-lg text-on-surface-variant max-w-xl mb-10 leading-relaxed"
           >
             {locale === "ar"
               ? "شريكك في التميز والإبداع منذ 15 عاماً — حلول متكاملة في الدعاية والإعلان وإدارة الفعاليات والطباعة"
@@ -233,7 +233,7 @@ export default function Hero() {
             </a>
             <a
               href="#portfolio"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-lg border-2 border-white/20 text-white font-bold text-sm hover:bg-white/10 transition-all"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-lg border-2 border-on-surface/15 text-on-surface font-bold text-sm hover:bg-on-surface/5 transition-all"
             >
               {locale === "ar" ? "استعرض أعمالنا" : "View Our Work"}
             </a>
@@ -247,13 +247,13 @@ export default function Hero() {
           transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1], delay: 0.5 }}
           className="lg:w-1/2 mt-12 lg:mt-0 w-full"
         >
-          <div className="relative rounded-lg overflow-hidden border border-white/10 shadow-2xl">
+          <div className="relative rounded-lg overflow-hidden border border-on-surface/10 shadow-2xl">
             <img
               src="/hero-gemini.jpeg"
               alt={locale === "ar" ? "وضوح الرؤية" : "Wodoh Alroya"}
               className="w-full h-auto object-cover aspect-square"
             />
-            <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-lg" />
+            <div className="absolute inset-0 ring-1 ring-inset ring-on-surface/10 rounded-lg" />
           </div>
         </motion.div>
         </div>
@@ -265,12 +265,12 @@ export default function Hero() {
           transition={{ delay: 2 }}
           className={`absolute bottom-8 ${isRtl ? "right-margin-desktop" : "left-margin-desktop"} flex flex-col items-center gap-2`}
         >
-          <span className="font-label-sm text-white/40 uppercase tracking-widest">
+          <span className="font-label-sm text-on-surface/40 uppercase tracking-widest">
             {locale === "ar" ? "اسفل" : "SCROLL"}
           </span>
-          <div className="w-5 h-8 rounded-full border border-white/20 flex items-start justify-center p-1">
+          <div className="w-5 h-8 rounded-full border border-on-surface/20 flex items-start justify-center p-1">
             <motion.div
-              className="w-1 h-2 rounded-full bg-secondary-container"
+              className="w-1 h-2 rounded-full bg-primary"
               animate={{ y: [0, 12, 0], opacity: [1, 0.3, 1] }}
               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             />
