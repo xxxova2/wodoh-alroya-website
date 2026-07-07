@@ -8,7 +8,7 @@ export default function CommunitySection() {
   const isRtl = locale === "ar"
 
   return (
-    <section className="bg-vibrant-purple text-white overflow-hidden">
+    <section className="bg-bright-red text-white overflow-hidden">
       <div className="grid lg:grid-cols-2">
         <ScrollReveal direction={isRtl ? "right" : "left"}>
           <div className="px-margin-mobile md:px-margin-desktop py-20 md:py-32 flex flex-col justify-center">
@@ -25,17 +25,16 @@ export default function CommunitySection() {
             </p>
             <a
               href={`/${locale}/#about`}
-              className="inline-flex items-center gap-3 border-2 border-white px-8 py-4 font-bold uppercase rounded-lg hover:bg-white hover:text-vibrant-purple transition-all w-fit"
+              className="inline-flex items-center gap-3 border-2 border-white px-8 py-4 font-bold uppercase rounded-lg hover:bg-white hover:text-bright-red transition-all w-fit"
             >
               {isRtl ? "اعرف المزيد" : "Learn More"}
             </a>
           </div>
         </ScrollReveal>
-
         <ScrollReveal direction={isRtl ? "left" : "right"}>
           <div className="relative min-h-[400px] lg:min-h-[500px]">
             <div className="absolute inset-0 bg-gradient-to-br from-primary to-on-background opacity-80" />
-            <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: "radial-gradient(circle at 30% 50%, white 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
+            <div className="dot-grid absolute inset-0 opacity-30" />
             <div className="absolute bottom-8 left-8 right-8 text-center">
               <span className="font-display text-[64px] md:text-[96px] font-extrabold text-white/10 leading-none">
                 15+

@@ -1,62 +1,70 @@
 @import "tailwindcss";
 
 @theme {
-  --color-surface: #f8f9fa;
-  --color-surface-dim: #d9dadb;
-  --color-surface-bright: #f8f9fa;
+  /* ===== Units.gr-inspired warm palette ===== */
+  /* Warm beige canvas */
+  --color-background: #f5f0e6;
+  --color-surface: #f5f0e6;
+  --color-surface-container: #efe8da;
+  --color-surface-container-low: #fbf8f1;
   --color-surface-container-lowest: #ffffff;
-  --color-surface-container-low: #f3f4f5;
-  --color-surface-container: #edeeef;
-  --color-surface-container-high: #e7e8e9;
-  --color-surface-container-highest: #e1e3e4;
-  --color-on-surface: #191c1d;
-  --color-on-surface-variant: #414753;
-  --color-inverse-surface: #2e3132;
-  --color-inverse-on-surface: #f0f1f2;
-  --color-outline: #717785;
-  --color-outline-variant: #c1c6d6;
-  --color-surface-tint: #005cba;
+  --color-surface-container-high: #e7dfce;
+  --color-surface-container-highest: #ded4bf;
+
+  /* Charcoal text */
+  --color-on-surface: #1a1a1a;
+  --color-on-surface-variant: #4a463f;
+  --color-on-background: #1a1a1a;
+  --color-neutral-charcoal: #1a1a1a;
+  --color-neutral-dark: #14110c;
+
+  --color-outline: #c9bfa8;
+  --color-outline-variant: #ddd3bd;
+
+  /* Brand blue */
   --color-primary: #005ab5;
   --color-on-primary: #ffffff;
-  --color-primary-container: #0072e3;
-  --color-on-primary-container: #fefcff;
-  --color-inverse-primary: #aac7ff;
-  --color-secondary: #7f5700;
-  --color-on-secondary: #ffffff;
-  --color-secondary-container: #ffb204;
-  --color-on-secondary-container: #6a4800;
-  --color-tertiary: #5b5b5b;
-  --color-on-tertiary: #ffffff;
-  --color-tertiary-container: #747474;
-  --color-on-tertiary-container: #fcfcfc;
-  --color-error: #ba1a1a;
-  --color-on-error: #ffffff;
-  --color-error-container: #ffdad6;
-  --color-on-error-container: #93000a;
-  --color-primary-fixed: #d7e3ff;
-  --color-primary-fixed-dim: #aac7ff;
-  --color-on-primary-fixed: #001b3e;
-  --color-on-primary-fixed-variant: #00458e;
-  --color-secondary-fixed: #ffdead;
-  --color-secondary-fixed-dim: #ffba3c;
-  --color-on-secondary-fixed: #281900;
-  --color-on-secondary-fixed-variant: #604100;
-  --color-tertiary-fixed: #e2e2e2;
-  --color-tertiary-fixed-dim: #c6c6c6;
-  --color-on-tertiary-fixed: #1b1b1b;
-  --color-on-tertiary-fixed-variant: #474747;
-  --color-surface-variant: #e1e3e4;
-  --color-background: #f8f9fa;
-  --color-on-background: #191c1d;
-  --color-action-orange: #ea3737;
-  --color-vibrant-purple: #ab54f7;
-  --color-emerald-green: #00a86b;
+  --color-primary-container: #d7e6f7;
+  --color-on-primary-container: #001b3e;
+  --color-primary-blue: #005ab5;
 
-  --font-display: "Hanken Grotesk", sans-serif;
-  --font-headline: "Hanken Grotesk", sans-serif;
+  /* Vibrant flat accent blocks (units.gr language) */
+  --color-primary-gold: #ffb204; /* sunshine yellow */
+  --color-on-primary-gold: #1a1a1a;
+  --color-secondary-container: #ffb204;
+  --color-on-secondary-container: #1a1a1a;
+
+  --color-action-orange: #ff6b35; /* coral */
+  --color-on-action-orange: #ffffff;
+
+  --color-vibrant-purple: #a78bfa; /* lavender */
+  --color-on-vibrant-purple: #1a1a1a;
+
+  --color-emerald-green: #1fbf75; /* bright green */
+  --color-on-emerald-green: #ffffff;
+
+  --color-bright-red: #f23b2f; /* bold red */
+  --color-on-bright-red: #ffffff;
+
+  --color-electric-blue: #2b59ff; /* electric blue */
+  --color-on-electric-blue: #ffffff;
+
+  --color-secondary-green: #1fbf75;
+  --color-on-secondary-green: #ffffff;
+
+  /* Neutral surfaces used by sub-pages */
+  --color-neutral-light: #f5f0e6;
+  --color-neutral: #f5f0e6;
+
+  /* ===== Typography ===== */
+  --font-display: "Hanken Grotesk", "Inter", sans-serif;
+  --font-headline: "Hanken Grotesk", "Inter", sans-serif;
   --font-body: "Inter", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
+  --font-arabic-heading: "Scheherazade New", "Amiri", serif;
+  --font-arabic: "Amiri", "Scheherazade New", serif;
 
+  /* ===== Type scale ===== */
   --text-display-lg: 72px;
   --text-display-lg--line-height: 76px;
   --text-display-lg--letter-spacing: -0.02em;
@@ -82,18 +90,21 @@
   --text-label-sm--letter-spacing: 0.05em;
   --text-label-sm--font-weight: 500;
 
-  --radius-sm: 0.125rem;
-  --radius-md: 0.375rem;
-  --radius-lg: 0.25rem;
-  --radius-xl: 0.5rem;
-  --radius-full: 0.75rem;
+  /* ===== Radius ===== */
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
+  --radius-xl: 2rem;
+  --radius-full: 9999px;
 
+  /* ===== Spacing scale ===== */
   --spacing-unit: 8px;
   --spacing-gutter: 24px;
   --spacing-margin-mobile: 16px;
   --spacing-margin-desktop: 64px;
   --spacing-max-width: 1440px;
 
+  /* ===== Animations ===== */
   --animate-marquee: marquee 30s linear infinite;
   --animate-fade-in: fade-in 0.6s ease-out;
   --animate-fade-in-up: fade-in-up 0.6s ease-out;
@@ -166,5 +177,53 @@
   }
   .bento-hover:hover .icon-move {
     transform: scale(1.1) rotate(5deg);
+  }
+
+  /* ===== Sub-page token shims (units.gr palette) ===== */
+  .bg-gradient-dark {
+    background: linear-gradient(135deg, #14110c 0%, #2a2418 100%);
+  }
+  .bg-gradient-gold {
+    background: linear-gradient(135deg, #ffb204 0%, #ff8a00 100%);
+  }
+  .bg-gradient-primary {
+    background: linear-gradient(135deg, #005ab5 0%, #2b59ff 100%);
+  }
+  .text-neutral-dark { color: var(--color-neutral-dark); }
+  .text-neutral-charcoal { color: var(--color-neutral-charcoal); }
+  .bg-neutral-light { background-color: var(--color-neutral-light); }
+  .bg-neutral { background-color: var(--color-neutral); }
+  .text-primary-gold { color: var(--color-primary-gold); }
+  .text-primary-blue { color: var(--color-primary-blue); }
+  .bg-primary-gold { background-color: var(--color-primary-gold); }
+  .bg-primary-gold\/10 { background-color: color-mix(in srgb, var(--color-primary-gold) 10%, transparent); }
+  .bg-primary-gold\/20 { background-color: color-mix(in srgb, var(--color-primary-gold) 20%, transparent); }
+  .bg-primary-gold\/30 { background-color: color-mix(in srgb, var(--color-primary-gold) 30%, transparent); }
+  .bg-primary-gold\/90 { background-color: color-mix(in srgb, var(--color-primary-gold) 90%, transparent); }
+  .border-primary-gold { border-color: var(--color-primary-gold); }
+  .border-primary-gold\/30 { border-color: color-mix(in srgb, var(--color-primary-gold) 30%, transparent); }
+  .bg-secondary-green { background-color: var(--color-secondary-green); }
+  .bg-secondary-green\/10 { background-color: color-mix(in srgb, var(--color-secondary-green) 10%, transparent); }
+  .text-secondary-green { color: var(--color-secondary-green); }
+  .ring-primary-gold\/20 { --tw-ring-color: color-mix(in srgb, var(--color-primary-gold) 20%, transparent); }
+
+  /* ===== Font utility shims (Arabic/Latin) ===== */
+  .font-english-heading,
+  .font-english-body,
+  .font-english {
+    font-family: var(--font-display);
+  }
+  .font-arabic-heading {
+    font-family: var(--font-arabic-heading);
+    font-weight: 700;
+  }
+  .font-arabic {
+    font-family: var(--font-arabic);
+  }
+
+  /* Dot-matrix / pixel texture used on blocks */
+  .dot-grid {
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+    background-size: 32px 32px;
   }
 }

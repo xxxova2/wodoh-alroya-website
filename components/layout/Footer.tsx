@@ -21,14 +21,14 @@ const socials = [
     path: "M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z",
   },
   {
-    label: "YouTube",
-    href: siteConfig.social.youtube,
-    path: "M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z",
-  },
-  {
     label: "TikTok",
     href: siteConfig.social.tiktok,
     path: "M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z",
+  },
+  {
+    label: "YouTube",
+    href: siteConfig.social.youtube,
+    path: "M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z",
   },
 ]
 
@@ -46,39 +46,76 @@ export default function Footer() {
   const isRtl = locale === "ar"
 
   return (
-    <footer className="bg-on-background text-surface border-t-2 border-outline/20">
+    <footer className="bg-surface-container text-on-surface">
+      {/* Newsletter split */}
+      <div className="flex flex-col md:flex-row">
+        <div className="bg-bright-red text-white px-margin-mobile md:px-margin-desktop py-12 md:py-16 flex items-center md:w-1/2">
+          <div>
+            <h3 className="font-headline-md text-headline-md font-bold mb-2">
+              {isRtl ? "انضم للنشرة البريدية" : "Join our newsletter"}
+            </h3>
+            <p className="text-white/80 font-body-md">
+              {isRtl ? "اشترك لتصلك آخر أخبارنا وعروضنا" : "Get our latest news and offers in your inbox"}
+            </p>
+          </div>
+        </div>
+        <div className="bg-primary-gold px-margin-mobile md:px-margin-desktop py-12 md:py-16 flex items-center md:w-1/2">
+          <form
+            className="flex items-center gap-2 w-full"
+            action={`mailto:${siteConfig.email}`}
+            method="post"
+          >
+            <input
+              className="w-full bg-white/90 border-none focus:ring-0 rounded-lg px-4 py-3 font-body-md outline-none text-on-surface placeholder:text-on-surface/50"
+              placeholder={isRtl ? "بريدك الإلكتروني" : "Your email here"}
+              type="email"
+              name="email"
+              required
+            />
+            <button
+              type="submit"
+              aria-label="Subscribe"
+              className="shrink-0 w-12 h-12 rounded-lg bg-on-surface text-surface flex items-center justify-center hover:bg-neutral-dark transition-colors"
+            >
+              <span className="material-symbols-outlined">arrow_forward</span>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      {/* Main footer grid */}
       <div className="px-margin-mobile md:px-margin-desktop py-16 max-w-max-width mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
           {/* Brand */}
           <div className="md:col-span-1">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-                <img src="/logo.jpg" alt="وضوح الرؤية" className="w-8 h-8 object-contain rounded" />
+              <div className="w-12 h-12 rounded-lg bg-primary flex items-center justify-center">
+                <img src="/logo.jpg" alt="وضوح الرؤية" className="w-9 h-9 object-contain rounded" />
               </div>
               <div>
-                <h3 className="text-headline-md font-headline font-bold text-surface">
+                <h3 className="font-headline-md font-bold">
                   {locale === "ar" ? "وضوح الرؤية" : "Wodoh Alroya"}
                 </h3>
-                <p className="text-surface-variant/60 text-label-sm uppercase tracking-wider mt-0.5">
+                <p className="text-on-surface/50 text-label-sm uppercase tracking-wider mt-0.5">
                   {locale === "ar" ? "للدعاية والإعلان" : "Advertising"}
                 </p>
               </div>
             </div>
-            <p className="text-surface-variant/70 font-body-md leading-relaxed max-w-xs">
+            <p className="text-on-surface/70 font-body-md leading-relaxed max-w-xs">
               {locale === "ar"
                 ? "شريكك الموثوق في عالم الدعاية والإعلان وإدارة الفعاليات منذ 15 عاماً"
                 : "Your trusted partner in advertising and event management for over 15 years"}
             </p>
             <div className="flex gap-3 mt-8">
-              {socials.slice(0, 3).map((s) => (
+              {socials.slice(0, 5).map((s) => (
                 <a
                   key={s.label}
                   href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-lg bg-surface/10 flex items-center justify-center hover:bg-primary hover:text-on-primary transition-all"
+                  className="w-9 h-9 rounded-lg bg-surface-container-lowest flex items-center justify-center hover:bg-primary hover:text-white transition-all"
                 >
-                  <svg viewBox="0 0 24 24" className="w-4 h-4 fill-surface-variant group-hover:fill-on-primary">
+                  <svg viewBox="0 0 24 24" className="w-4 h-4 fill-on-surface">
                     <path d={s.path} />
                   </svg>
                 </a>
@@ -88,7 +125,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-label-sm text-surface-variant uppercase tracking-widest mb-6">
+            <h4 className="font-label-sm text-on-surface/50 uppercase tracking-widest mb-6">
               {isRtl ? "روابط سريعة" : "Quick Links"}
             </h4>
             <ul className="space-y-3">
@@ -96,7 +133,7 @@ export default function Footer() {
                 <li key={link.key}>
                   <Link
                     href={`/${locale}/${link.href}`}
-                    className="font-body-md text-surface-variant/70 hover:text-secondary-container transition-colors"
+                    className="font-body-md text-on-surface/70 hover:text-primary transition-colors"
                   >
                     {link.key === "home"
                       ? isRtl ? "الرئيسية" : "Home"
@@ -108,8 +145,7 @@ export default function Footer() {
                             ? isRtl ? "أعمالنا" : "Portfolio"
                             : link.key === "contact"
                               ? isRtl ? "اتصل بنا" : "Contact"
-                              : isRtl ? "الوظائف" : "Careers"
-                    }
+                              : isRtl ? "الوظائف" : "Careers"}
                   </Link>
                 </li>
               ))}
@@ -118,49 +154,51 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h4 className="font-label-sm text-surface-variant uppercase tracking-widest mb-6">
+            <h4 className="font-label-sm text-on-surface/50 uppercase tracking-widest mb-6">
               {isRtl ? "معلومات التواصل" : "Contact Info"}
             </h4>
-            <ul className="space-y-4 font-body-md text-surface-variant/70">
+            <ul className="space-y-4 font-body-md text-on-surface/70">
               <li>{isRtl ? "المملكة العربية السعودية" : "Saudi Arabia"}</li>
-              <li className="text-surface/80 font-mono">{siteConfig.phone}</li>
-              <li className="text-surface/80">{siteConfig.email}</li>
+              <li className="font-mono" dir="ltr">{siteConfig.phone}</li>
+              <li>{siteConfig.email}</li>
             </ul>
           </div>
 
-          {/* Newsletter */}
-          <div>
-            <h4 className="font-label-sm text-surface-variant uppercase tracking-widest mb-6">
-              {isRtl ? "النشرة البريدية" : "Newsletter"}
-            </h4>
-            <p className="font-body-md text-surface-variant/70 mb-6">
-              {isRtl ? "اشترك لتصلك آخر أخبارنا" : "Subscribe for updates"}
+          {/* CTA */}
+          <div className="bg-primary text-white rounded-lg p-6 flex flex-col justify-between">
+            <p className="font-body-md leading-relaxed">
+              {isRtl ? "لنتحدث عن مشروعك القادم" : "Let's talk about your next project"}
             </p>
-            <div className="flex border-b-2 border-outline-variant pb-2">
-              <input
-                className="bg-transparent border-none focus:ring-0 w-full placeholder:text-surface-variant/40 text-surface font-body-md outline-none"
-                placeholder={isRtl ? "البريد الإلكتروني" : "Email address"}
-                type="email"
-              />
-              <button className="material-symbols-outlined text-surface-variant/60 hover:text-secondary-container transition-colors">
-                arrow_forward
-              </button>
-            </div>
+            <a
+              href="#contact"
+              className="mt-4 inline-flex items-center gap-2 bg-primary-gold text-on-surface px-5 py-3 rounded-lg font-bold text-sm uppercase tracking-wider hover:bg-white transition-colors w-fit"
+            >
+              {isRtl ? "اطلب استشارة" : "Get a quote"}
+            </a>
           </div>
         </div>
       </div>
 
+      {/* Big wordmark */}
+      <div className="border-t border-outline/30 relative overflow-hidden dot-grid">
+        <div className="px-margin-mobile md:px-margin-desktop py-10 max-w-max-width mx-auto">
+          <p className="font-display font-extrabold leading-none tracking-tight text-[14vw] md:text-[10vw] text-on-surface/90 select-none">
+            {locale === "ar" ? "وضوح الرؤية" : "Wodoh Alroya"}
+          </p>
+        </div>
+      </div>
+
       {/* Bottom bar */}
-      <div className="border-t border-outline/20">
+      <div className="border-t border-outline/30">
         <div className="px-margin-mobile md:px-margin-desktop py-6 max-w-max-width mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="font-label-sm text-surface-variant/40 tracking-wide">
+          <p className="font-label-sm text-on-surface/40 tracking-wide">
             &copy; {new Date().getFullYear()} {locale === "ar" ? "وضوح الرؤية للدعاية والإعلان" : "Wodoh Alroya Advertising"}
           </p>
-          <div className="flex gap-6 font-label-sm text-surface-variant/40">
-            <a href="#" className="hover:text-secondary-container transition-colors">
+          <div className="flex gap-6 font-label-sm text-on-surface/40">
+            <a href="#" className="hover:text-primary transition-colors">
               {isRtl ? "سياسة الخصوصية" : "Privacy Policy"}
             </a>
-            <a href="#" className="hover:text-secondary-container transition-colors">
+            <a href="#" className="hover:text-primary transition-colors">
               {isRtl ? "شروط الخدمة" : "Terms of Service"}
             </a>
           </div>
