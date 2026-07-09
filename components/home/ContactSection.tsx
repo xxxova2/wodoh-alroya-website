@@ -12,7 +12,27 @@ export default function ContactSection() {
   const isRtl = locale === "ar"
   const [submitted, setSubmitted] = useState(false)
 
-  const { register, handleSubmit, formState: { isSubmitting } } = useForm()
+  const {
+    register,
+    handleSubmit,
+    formState: { isSubmitting, errors },
+  } = useForm()
+
+  const err = (msg: string) =>
+    isRtl ? msg : msg
+
+  const fieldBase =
+    "w-full px-4 py-3 rounded-xl border bg-surface-container focus:ring-2 focus:ring-primary/20 outline-none transition-all font-body-md"
+  const inputCls = (hasError: boolean) =>
+    `${fieldBase} ${hasError ? "border-bright-red focus:border-bright-red" : "border-outline-variant focus:border-primary"}`
+  const selectCls = (hasError: boolean) =>
+    `${fieldBase} ${hasError ? "border-bright-red focus:border-bright-red" : "border-outline-variant focus:border-primary"}`
+
+  const ErrorText = ({ children }: { children: string }) => (
+    <p className="mt-1.5 font-label-sm text-bright-red" role="alert">
+      {children}
+    </p>
+  )
 
   const onSubmit = async () => {
     await new Promise((r) => setTimeout(r, 1500))
@@ -61,9 +81,13 @@ export default function ContactSection() {
                     </label>
                     <input
                       {...register("name", { required: true })}
-                      className="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface-container focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all font-body-md"
+                      aria-invalid={errors.name ? "true" : "false"}
+                      className={inputCls(!!errors.name)}
                       placeholder={isRtl ? "أدخل اسمك" : "Your name"}
                     />
+                    {errors.name && (
+                      <ErrorText>{isRtl ? "الرجاء إدخال الاسم" : "Please enter your name"}</ErrorText>
+                    )}
                   </div>
                   <div>
                     <label className="font-label-sm text-on-surface block mb-1.5">
@@ -72,9 +96,13 @@ export default function ContactSection() {
                     <input
                       {...register("email", { required: true })}
                       type="email"
-                      className="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface-container focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all font-body-md"
+                      aria-invalid={errors.email ? "true" : "false"}
+                      className={inputCls(!!errors.email)}
                       placeholder={isRtl ? "بريدك الإلكتروني" : "Your email"}
                     />
+                    {errors.email && (
+                      <ErrorText>{isRtl ? "الرجاء إدخال بريد صحيح" : "Please enter a valid email"}</ErrorText>
+                    )}
                   </div>
                   <div>
                     <label className="font-label-sm text-on-surface block mb-1.5">
@@ -82,7 +110,7 @@ export default function ContactSection() {
                     </label>
                     <input
                       {...register("phone")}
-                      className="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface-container focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all font-body-md"
+                      className={inputCls(!!errors.phone)}
                       placeholder={isRtl ? "رقم جوالك" : "Your phone"}
                     />
                   </div>
@@ -92,7 +120,7 @@ export default function ContactSection() {
                     </label>
                     <select
                       {...register("service")}
-                      className="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface-container focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                      className={selectCls(!!errors.service)}
                     >
                       <option value="">
                         {isRtl ? "اختر الخدمة" : "Select service"}
@@ -111,14 +139,18 @@ export default function ContactSection() {
                     <textarea
                       {...register("message", { required: true })}
                       rows={5}
-                      className="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface-container focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none font-body-md"
+                      aria-invalid={errors.message ? "true" : "false"}
+                      className={`${inputCls(!!errors.message)} resize-none`}
                       placeholder={isRtl ? "رسالتك" : "Your message"}
                     />
+                    {errors.message && (
+                      <ErrorText>{isRtl ? "الرجاء كتابة رسالتك" : "Please write a message"}</ErrorText>
+                    )}
                   </div>
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-4 rounded-xl bg-action-orange text-white font-bold text-base hover:bg-action-orange/90 transition-all disabled:opacity-50 font-body"
+                    className="w-full py-4 rounded-xl bg-action-orange text-white font-bold text-base hover:bg-action-orange/90 transition-all active:scale-[0.98] disabled:opacity-50 disabled:active:scale-100 font-body"
                   >
                     {isSubmitting
                       ? isRtl ? "جاري الإرسال..." : "Sending..."
@@ -178,7 +210,7 @@ export default function ContactSection() {
                   href={`https://wa.me/${siteConfig.whatsapp}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-emerald-green text-white font-bold hover:bg-emerald-green/90 transition-all"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-emerald-green text-white font-bold hover:bg-emerald-green/90 transition-all active:scale-[0.98]"
                 >
                   <Phone className="w-5 h-5" />
                   {isRtl ? "فتح واتساب" : "Open WhatsApp"}

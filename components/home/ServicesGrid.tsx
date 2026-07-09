@@ -2,30 +2,24 @@
 
 import Link from "next/link"
 import { useLocale } from "next-intl"
-import { Megaphone, Printer, CalendarCheck, Gift, Settings2, Truck } from "lucide-react"
+import { Megaphone, Printer, CalendarCheck, Gift, Settings2, Truck, ArrowRight, type LucideIcon } from "lucide-react"
 import { services } from "@/lib/constants"
 import ScrollReveal from "@/components/ui/ScrollReveal"
+import TiltCard from "@/components/ui/TiltCard"
 
-const iconMap: Record<string, React.ElementType> = {
+const iconMap: Record<string, LucideIcon> = {
   Megaphone, Printer, CalendarCheck, Gift, Settings2, Truck,
 }
 
-const bgColors = [
-  "bg-primary",
-  "bg-secondary-container",
-  "bg-vibrant-purple",
-  "bg-emerald-green",
-  "bg-action-orange",
-  "bg-on-background",
-]
-
-const textColors = [
-  "text-on-primary",
-  "text-on-secondary-container",
-  "text-white",
-  "text-white",
-  "text-white",
-  "text-surface",
+// Single accent per card: tinted neutral surface + one colored icon.
+// Color now marks the action, not the whole block.
+const accentColors = [
+  "text-primary",
+  "text-primary-gold",
+  "text-vibrant-purple",
+  "text-emerald-green",
+  "text-action-orange",
+  "text-electric-blue",
 ]
 
 export default function ServicesGrid() {
@@ -53,31 +47,32 @@ export default function ServicesGrid() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {services.map((service, index) => {
           const Icon = iconMap[service.icon] || Megaphone
-          const bg = bgColors[index % bgColors.length]
-          const tc = textColors[index % textColors.length]
+          const accent = accentColors[index % accentColors.length]
           return (
             <ScrollReveal key={service.id} delay={index * 80}>
-              <Link
-                href={`/${locale}/services/${service.id}`}
-                className={`group block ${bg} ${tc} p-8 rounded-lg transition-all duration-500 hover:-translate-y-1 hover:shadow-lg relative overflow-hidden`}
-              >
-                <div className="relative z-10">
-                  <div className="w-12 h-12 rounded-lg bg-white/15 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <Icon className="w-6 h-6" />
+              <TiltCard className="h-full">
+                <Link
+                  href={`/${locale}/services/${service.id}`}
+                  className="group block bg-surface-container-lowest text-on-surface p-8 rounded-lg ring-1 ring-outline-variant transition-all duration-500 hover:-translate-y-1 hover:shadow-lg active:scale-[0.99] relative overflow-hidden"
+                >
+                  <div className="relative z-10">
+                    <div className={`w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center mb-6 group-hover:scale-110 transition-transform ${accent}`}>
+                      <Icon className="w-6 h-6" />
+                    </div>
+                    <h3 className="font-headline-md text-headline-md mb-3 leading-tight">
+                      {isRtl ? service.titleAr : service.titleEn}
+                    </h3>
+                    <p className="font-body-md text-on-surface-variant leading-relaxed mb-6">
+                      {isRtl ? service.descAr : service.descEn}
+                    </p>
+                    <span className={`inline-flex items-center gap-2 font-label-sm uppercase tracking-wider ${accent}`}>
+                      {isRtl ? "اعرف المزيد" : "Learn more"}
+                      <ArrowRight className="w-4 h-4" />
+                    </span>
                   </div>
-                  <h3 className="font-headline-md text-headline-md mb-3 leading-tight">
-                    {isRtl ? service.titleAr : service.titleEn}
-                  </h3>
-                  <p className={`font-body-md leading-relaxed mb-6 ${tc}/80`}>
-                    {isRtl ? service.descAr : service.descEn}
-                  </p>
-                  <span className="inline-flex items-center gap-2 font-label-sm uppercase tracking-wider">
-                    {isRtl ? "اعرف المزيد" : "Learn more"}
-                    <span className="material-symbols-outlined text-sm">arrow_forward</span>
-                  </span>
-                </div>
-                <div className="absolute -right-10 -bottom-10 w-40 h-40 bg-white/5 rounded-full blur-2xl" />
-              </Link>
+                  <div className="absolute -right-10 -bottom-10 w-40 h-40 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity bg-current/10" />
+                </Link>
+              </TiltCard>
             </ScrollReveal>
           )
         })}

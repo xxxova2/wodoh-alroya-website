@@ -176,7 +176,7 @@ export default function CareersPage() {
                         </label>
                         <input
                           {...register("name", { required: true })}
-                          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-gold focus:ring-2 focus:ring-primary-gold/20 outline-none transition-all"
+                          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-gold focus:ring-2 focus:ring-primary-gold/20 outline-none transition-all text-base"
                         />
                       </div>
                       <div>
@@ -207,7 +207,7 @@ export default function CareersPage() {
                         </label>
                         <select
                           {...register("position")}
-                          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-gold focus:ring-2 focus:ring-primary-gold/20 outline-none transition-all bg-white"
+                          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-gold focus:ring-2 focus:ring-primary-gold/20 outline-none transition-all bg-white text-base"
                         >
                           <option value="">
                             {isRtl ? "اختر" : "Select"}
@@ -228,7 +228,7 @@ export default function CareersPage() {
                       <textarea
                         {...register("message")}
                         rows={4}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-gold focus:ring-2 focus:ring-primary-gold/20 outline-none transition-all resize-none"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-gold focus:ring-2 focus:ring-primary-gold/20 outline-none transition-all resize-none text-base"
                       />
                     </div>
 

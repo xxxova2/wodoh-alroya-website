@@ -1,12 +1,20 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import { motion } from "framer-motion"
 import { useLocale } from "next-intl"
+import dynamic from "next/dynamic"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { ArrowRight } from "lucide-react"
+import ErrorBoundary from "@/components/ui/ErrorBoundary"
 
 gsap.registerPlugin(ScrollTrigger)
+
+const Scene3D = dynamic(() => import("@/components/home/Scene3D"), {
+  ssr: false,
+  loading: () => null,
+})
 
 const tunnelImages = [
   "https://wodohalroya.com/wp-content/uploads/2025/07/الدفاع-المدني.jpg",
@@ -31,6 +39,7 @@ export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
     const ctx = gsap.context(() => {
       ScrollTrigger.create({
         trigger: sectionRef.current,
@@ -170,14 +179,21 @@ export default function Hero() {
         </svg>
       </div>
 
-      {/* Office background photo (full-bleed) */}
-      <div
-        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/hero-office.jpeg')" }}
-      />
+      {/* Themed WebGL 3D accent (decorative, lazy + error-safe) */}
+      <div className="absolute inset-0 z-[1] pointer-events-none opacity-60">
+        <ErrorBoundary>
+          <Scene3D />
+        </ErrorBoundary>
+      </div>
 
-      {/* Beige scrim: reveal LEFT side of the photo, keep text panel on the RIGHT for both languages */}
-      <div className="absolute inset-0 z-[1] bg-gradient-to-r from-transparent via-background/40 to-background" />
+      {/* Theme-aware floating depth blobs (subtle, behind content) */}
+      <div className="pointer-events-none absolute inset-0 z-0">
+        <div className="animate-blob absolute -top-24 right-10 w-96 h-96 rounded-full bg-primary/10 blur-3xl" />
+        <div className="animate-blob-slow absolute top-1/3 -left-24 w-80 h-80 rounded-full bg-primary/8 blur-3xl" />
+      </div>
+
+      {/* Beige scrim: pull focus to the text panel on the RIGHT for both languages */}
+      <div className="absolute inset-0 z-[1] bg-gradient-to-r from-background/10 via-background/55 to-background" />
 
       {/* Logo overlay, top corner — beige chip so the white-bg logo blends on cream */}
       <div
@@ -216,7 +232,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.8 }}
-            className="text-display-lg font-display font-extrabold text-on-surface mb-6 leading-tight"
+            className={`text-display-lg font-extrabold text-on-surface mb-6 leading-tight ${isRtl ? "font-arabic-heading" : "font-display"}`}
           >
             {locale === "ar" ? (
               <>وضوح<br />الرؤية</>
@@ -244,16 +260,14 @@ export default function Hero() {
           >
             <a
               href="#contact"
-              className="inline-flex items-center gap-3 bg-secondary-container text-on-secondary-container px-8 py-4 font-bold uppercase rounded-lg hover:bg-white hover:text-primary transition-all duration-300 text-sm group"
+              className="inline-flex items-center gap-3 bg-secondary-container text-on-secondary-container px-8 py-4 font-bold uppercase rounded-lg hover:bg-white hover:text-primary transition-all duration-300 text-sm group active:scale-[0.98]"
             >
               {locale === "ar" ? "اطلب استشارة مجانية" : "Get a Free Consultation"}
-              <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">
-                arrow_forward
-              </span>
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
             <a
               href="#portfolio"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-lg border-2 border-on-surface/15 text-on-surface font-bold text-sm hover:bg-on-surface/5 transition-all"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-lg border-2 border-on-surface/15 text-on-surface font-bold text-sm hover:bg-on-surface/5 transition-all active:scale-[0.98]"
             >
               {locale === "ar" ? "استعرض أعمالنا" : "View Our Work"}
             </a>

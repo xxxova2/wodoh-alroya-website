@@ -12,10 +12,11 @@ import {
   Gift,
   Settings2,
   Truck,
+  type LucideIcon,
 } from "lucide-react";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
-const iconMap: Record<string, React.ElementType> = {
+const iconMap: Record<string, LucideIcon> = {
   Megaphone,
   Printer,
   CalendarCheck,

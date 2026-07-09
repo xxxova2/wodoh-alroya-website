@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { useLocale } from "next-intl"
+import { ArrowRight } from "lucide-react"
 import { siteConfig } from "@/lib/constants"
 
 const socials = [
@@ -75,9 +76,10 @@ export default function Footer() {
             <button
               type="submit"
               aria-label="Subscribe"
-              className="shrink-0 w-12 h-12 rounded-lg bg-on-surface text-surface flex items-center justify-center hover:bg-neutral-dark transition-colors"
+              className="shrink-0 w-12 h-12 rounded-lg bg-on-surface text-surface flex items-center justify-center hover:bg-neutral-dark transition-colors active:scale-95"
             >
-              <span className="material-symbols-outlined">arrow_forward</span>
+              <span className="sr-only">Subscribe</span>
+              <ArrowRight className="w-5 h-5" />
             </button>
           </form>
         </div>
@@ -171,7 +173,7 @@ export default function Footer() {
             </p>
             <a
               href="#contact"
-              className="mt-4 inline-flex items-center gap-2 bg-primary-gold text-on-surface px-5 py-3 rounded-lg font-bold text-sm uppercase tracking-wider hover:bg-white transition-colors w-fit"
+              className="mt-4 inline-flex items-center gap-2 bg-primary-gold text-on-surface px-5 py-3 rounded-lg font-bold text-sm uppercase tracking-wider hover:bg-white transition-colors active:scale-[0.98] w-fit"
             >
               {isRtl ? "اطلب استشارة" : "Get a quote"}
             </a>
@@ -182,7 +184,7 @@ export default function Footer() {
       {/* Big wordmark */}
       <div className="border-t border-outline/30 relative overflow-hidden dot-grid">
         <div className="px-margin-mobile md:px-margin-desktop py-10 max-w-max-width mx-auto">
-          <p className="font-display font-extrabold leading-none tracking-tight text-[14vw] md:text-[10vw] text-on-surface/90 select-none">
+          <p className={`font-extrabold leading-none tracking-tight text-[14vw] md:text-[10vw] text-on-surface/90 select-none ${isRtl ? "font-arabic-heading" : "font-display"}`}>
             {locale === "ar" ? "وضوح الرؤية" : "Wodoh Alroya"}
           </p>
         </div>

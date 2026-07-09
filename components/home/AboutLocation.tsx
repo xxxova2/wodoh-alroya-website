@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { useLocale } from "next-intl"
 import { motion } from "framer-motion"
+import { ArrowUpRight } from "lucide-react"
 import ScrollReveal from "@/components/ui/ScrollReveal"
 
 export default function AboutLocation() {
@@ -32,10 +33,10 @@ export default function AboutLocation() {
             <div className="mt-8">
               <Link
                 href={`/${locale}/#about`}
-                className="inline-flex items-center gap-2 border-b-2 border-primary pb-1 font-bold uppercase tracking-wider text-primary hover:text-primary-container hover:border-primary-container transition-colors"
+                className="inline-flex items-center gap-2 border-b-2 border-primary pb-1 font-bold uppercase tracking-wider text-primary hover:text-primary-container hover:border-primary-container transition-colors active:scale-[0.98] origin-bottom"
               >
                 {locale === "ar" ? "اعرف المزيد" : "Learn More"}
-                <span className="material-symbols-outlined text-lg">north_east</span>
+                <ArrowUpRight className="w-5 h-5" />
               </Link>
             </div>
           </div>

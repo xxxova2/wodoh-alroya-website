@@ -63,7 +63,7 @@ export default function InstagramSection() {
           href={siteConfig.social.instagram}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 bg-bright-red hover:bg-action-orange transition-colors px-6 py-3 rounded-lg font-bold text-[14px] uppercase tracking-wider"
+          className="inline-flex items-center gap-2 bg-bright-red hover:bg-action-orange transition-colors px-6 py-3 rounded-lg font-bold text-[14px] uppercase tracking-wider active:scale-[0.98]"
         >
           <Camera className="w-5 h-5" />
           {isRtl ? "@wodohalroya تابعنا على" : "Follow @wodohalroya"}

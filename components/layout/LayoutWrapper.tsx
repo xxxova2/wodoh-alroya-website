@@ -3,6 +3,7 @@
 import { useState, ReactNode } from "react"
 import Preloader from "@/components/home/Preloader"
 import LanguageSwitcher from "@/components/layout/LanguageSwitcher"
+import ThemeSwitcher from "@/components/layout/ThemeSwitcher"
 
 export default function LayoutWrapper({ children }: { children: ReactNode }) {
   const [preloaderDone, setPreloaderDone] = useState(false)
@@ -10,8 +11,9 @@ export default function LayoutWrapper({ children }: { children: ReactNode }) {
   return (
     <>
       {!preloaderDone && <Preloader onComplete={() => setPreloaderDone(true)} />}
-      <div style={{ display: preloaderDone ? "block" : "none" }}>
+      <div>
         <LanguageSwitcher />
+        <ThemeSwitcher />
         {children}
       </div>
     </>

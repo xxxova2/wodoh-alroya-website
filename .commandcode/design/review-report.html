@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Wodoh Alroya - Review Report</title>
+	<script src="https://cdn.tailwindcss.com"></script>
+	<style>
+		body { font-family: Inter, ui-sans-serif, system-ui, sans-serif; }
+		.mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+		.report-section { border: 1px solid #222226; background: #0a0a0b; position: relative; }
+		.corner-box { position: absolute; width: 20px; height: 20px; border: 1px solid #222226; background: #000; }
+	</style>
+</head>
+<body class="bg-black text-[#fafafa]">
+	<main class="mx-auto w-full max-w-6xl px-5 py-8 md:px-10 md:py-12">
+		<header class="report-section mb-8 p-6 md:p-8">
+			<div class="corner-box left-0 top-0 -translate-x-1/2 -translate-y-1/2"></div>
+			<div class="corner-box right-0 top-0 translate-x-1/2 -translate-y-1/2"></div>
+			<div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+				<div>
+					<div class="mono mb-2 text-xs tracking-widest text-[#666]">// REVIEW</div>
+					<h1 class="text-4xl font-bold tracking-tight md:text-6xl">وضوح الرؤية</h1>
+					<div class="mt-1 text-sm text-[#666]">Wodoh Alroya — advertising / events / printing landing</div>
+				</div>
+				<div class="mono text-left text-xs text-[#666] md:text-right">
+					<div>COMMANDCODE REPORT</div>
+					<div class="text-[#444]">2026-07-09</div>
+				</div>
+			</div>
+		</header>
+
+		<section class="report-section mb-8 p-6 md:p-8">
+			<div class="corner-box left-0 top-0 -translate-x-1/2 -translate-y-1/2"></div>
+			<div class="corner-box right-0 top-0 translate-x-1/2 -translate-y-1/2"></div>
+			<div class="grid gap-8 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
+				<div>
+					<div class="mono mb-2 text-xs tracking-widest text-[#666]">// OVERALL</div>
+					<div class="text-6xl font-bold tracking-tight md:text-7xl">35</div>
+					<div class="mt-1 text-lg text-[#666]">/ 50</div>
+					<div class="mt-4 inline-flex border border-[#fbbf24]/30 bg-[#fbbf24]/10 px-3 py-1 text-sm text-[#fbbf24]">SOLID, FIXABLE DEFECTS</div>
+				</div>
+				<div>
+					<div class="mono mb-3 text-xs tracking-widest text-[#666]">// TL;DR</div>
+					<p class="text-sm leading-6 text-[#a0a0a0]">Confident bilingual RTL build with a real token system and honest motion. Undercut by Arabic display type silently falling back to a system font, no primary nav on a long page, and a stat label referencing a color token that does not exist.</p>
+					<p class="mt-4 text-sm leading-6 text-[#fbbf24]">Start with /design typeset (Arabic fonts) and /design relayout (add sticky nav).</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="report-section mb-8 p-6 md:p-8">
+			<div class="mono mb-6 text-xs tracking-widest text-[#666]">// HEURISTIC SCORES</div>
+			<div class="overflow-x-auto">
+				<table class="w-full min-w-[720px] border-collapse text-sm">
+					<thead>
+						<tr class="border-b border-[#222226] text-left mono text-xs text-[#666]">
+							<th class="py-3 pr-4 font-normal">#</th>
+							<th class="py-3 pr-4 font-normal">HEURISTIC</th>
+							<th class="py-3 pr-4 font-normal">SCORE</th>
+							<th class="py-3 font-normal">KEY FINDING</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="border-b border-[#1a1a1e]">
+							<td class="py-4 pr-4 text-[#555]">1</td>
+							<td class="py-4 pr-4 text-[#fafafa]">First impression</td>
+							<td class="py-4 pr-4 text-[#fbbf24]">8</td>
+							<td class="py-4 text-[#a0a0a0]">Distinctive photo-tunnel hero; softened by a 3.2s preloader gate and busy accent palette.</td>
+						</tr>
+						<tr class="border-b border-[#1a1a1e]">
+							<td class="py-4 pr-4 text-[#555]">2</td>
+							<td class="py-4 pr-4 text-[#fafafa]">Hierarchy</td>
+							<td class="py-4 pr-4 text-[#fbbf24]">7</td>
+							<td class="py-4 text-[#a0a0a0]">Clear section rhythm; no persistent nav, so wayfinding relies on the footer.</td>
+						</tr>
+						<tr class="border-b border-[#1a1a1e]">
+							<td class="py-4 pr-4 text-[#555]">3</td>
+							<td class="py-4 pr-4 text-[#fafafa]">Color voice</td>
+							<td class="py-4 pr-4 text-[#fbbf24]">7</td>
+							<td class="py-4 text-[#a0a0a0]">Cohesive warm system, but 6+ saturated accents dilute the brand-blue anchor.</td>
+						</tr>
+						<tr class="border-b border-[#1a1a1e]">
+							<td class="py-4 pr-4 text-[#555]">4</td>
+							<td class="py-4 pr-4 text-[#fafafa]">Type voice</td>
+							<td class="py-4 pr-4 text-[#fbbf24]">6</td>
+							<td class="py-4 text-[#a0a0a0]">Hero H1 + footer wordmark set in Latin font; Arabic falls back, not the declared serif.</td>
+						</tr>
+						<tr class="border-b border-[#1a1a1e]">
+							<td class="py-4 pr-4 text-[#555]">5</td>
+							<td class="py-4 pr-4 text-[#fafafa]">Interaction feel</td>
+							<td class="py-4 pr-4 text-[#fbbf24]">7</td>
+							<td class="py-4 text-[#a0a0a0]">Good states + reduced-motion; gated by display:none preloader, theme menu Arabic-only.</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+		<section class="report-section mb-8 p-6 md:p-8">
+			<div class="mono mb-6 text-xs tracking-widest text-[#666]">// RISK SIGNALS</div>
+			<div class="grid gap-6 md:grid-cols-2">
+				<div>
+					<div class="mb-3 text-xl font-semibold text-[#34d399]">Passing</div>
+					<ul class="space-y-3 text-sm text-[#a0a0a0]">
+						<li><span class="mono mr-2 text-[#34d399]">PASS</span>Bilingual + RTL is genuinely first-class across all sections.</li>
+						<li><span class="mono mr-2 text-[#34d399]">PASS</span>Form has labels, validation, error, loading, success states.</li>
+						<li><span class="mono mr-2 text-[#34d399]">PASS</span>prefers-reduced-motion honored (marquee, blobs, preloader).</li>
+						<li><span class="mono mr-2 text-[#34d399]">PASS</span>Five theme colorways recolor via tokens, zero component edits.</li>
+					</ul>
+				</div>
+				<div>
+					<div class="mb-3 text-xl font-semibold text-[#f43f5e]">Failing</div>
+					<ul class="space-y-3 text-sm text-[#a0a0a0]">
+						<li><span class="mono mr-2 text-[#f43f5e]">FAIL</span>Arabic display type falls back (no font-arabic-heading on hero/footer).</li>
+						<li><span class="mono mr-2 text-[#f43f5e]">FAIL</span>No primary nav on a long one-page site.</li>
+						<li><span class="mono mr-2 text-[#f43f5e]">FAIL</span>Stat label uses text-surface-variant — token does not exist.</li>
+						<li><span class="mono mr-2 text-[#fbbf24]">WATCH</span>Theme switcher menu hardcoded Arabic on English UI.</li>
+					</ul>
+				</div>
+			</div>
+			<div class="mt-6">
+				<div class="mono mb-3 text-xs tracking-widest text-[#666]">// NEXT MODES</div>
+				<div class="flex flex-wrap gap-2">
+					<span class="border border-[#333] px-3 py-1 text-sm text-[#a0a0a0]">/typeset</span>
+					<span class="border border-[#333] px-3 py-1 text-sm text-[#a0a0a0]">/relayout</span>
+					<span class="border border-[#333] px-3 py-1 text-sm text-[#a0a0a0]">/recolor</span>
+					<span class="border border-[#333] px-3 py-1 text-sm text-[#a0a0a0]">/interaction</span>
+					<span class="border border-[#333] px-3 py-1 text-sm text-[#a0a0a0]">/refine</span>
+				</div>
+			</div>
+		</section>
+
+		<section class="report-section mb-8 p-6 md:p-8">
+			<div class="mono mb-6 text-xs tracking-widest text-[#666]">// PRIORITY ISSUES</div>
+			<div class="space-y-5">
+				<article class="border border-[#2a1d22] bg-[#110b0d] p-5">
+					<div class="mono mb-2 text-xs text-[#f43f5e]">P1</div>
+					<h2 class="mb-2 text-lg font-semibold">Arabic display type silently falls back</h2>
+					<p class="mb-4 text-sm leading-6 text-[#a0a0a0]">Hero H1 and footer wordmark use <span class="mono text-[#fbbf24]">font-display</span> (Hanken Grotesk, Latin). Arabic "وضوح الرؤية" renders in a system fallback, not the declared <span class="mono text-[#fbbf24]">font-arabic-heading</span> serif.</p>
+					<div class="border-l border-[#fbbf24] pl-4 text-sm leading-6 text-[#fbbf24]">FIX: apply font-arabic-heading to hero H1 (ar) + footer wordmark; .font-arabic to Arabic body. → /design typeset</div>
+				</article>
+
+				<article class="border border-[#2a1d22] bg-[#110b0d] p-5">
+					<div class="mono mb-2 text-xs text-[#f43f5e]">P1</div>
+					<h2 class="mb-2 text-lg font-semibold">No primary navigation on a long one-page site</h2>
+					<p class="mb-4 text-sm leading-6 text-[#a0a0a0]">LayoutWrapper renders only floating language + theme switchers. No header, no in-page anchor nav. Footer quick links are the only section jump on a long scroll.</p>
+					<div class="border-l border-[#fbbf24] pl-4 text-sm leading-6 text-[#fbbf24]">FIX: add a sticky bilingual RTL-aware header with brand + #about/#services/#portfolio/#contact. → /design relayout</div>
+				</article>
+
+				<article class="border border-[#2a1d22] bg-[#110b0d] p-5">
+					<div class="mono mb-2 text-xs text-[#f43f5e]">P1</div>
+					<h2 class="mb-2 text-lg font-semibold">Stat label uses a non-existent color token</h2>
+					<p class="mb-4 text-sm leading-6 text-[#a0a0a0]">StatsCounter line 58 uses <span class="mono text-[#fbbf24]">text-surface-variant/60</span>. No <span class="mono text-[#fbbf24]">--color-surface-variant</span> token exists in globals.css, so the class is dropped and the label inherits full white instead of a dimmed 60% variant.</p>
+					<div class="border-l border-[#fbbf24] pl-4 text-sm leading-6 text-[#fbbf24]">FIX: use text-surface/60 or define the token. → /design recolor</div>
+				</article>
+
+				<article class="border border-[#2a2418] bg-[#0d0b07] p-5">
+					<div class="mono mb-2 text-xs text-[#fbbf24]">P2</div>
+					<h2 class="mb-2 text-lg font-semibold">Theme switcher is Arabic-only</h2>
+					<p class="mb-4 text-sm leading-6 text-[#a0a0a0]">ThemeSwitcher title "اختر اللون", theme names (labelAr), and aria-label are hardcoded Arabic even on the English locale — a bilingual-fidelity break.</p>
+					<div class="border-l border-[#fbbf24] pl-4 text-sm leading-6 text-[#fbbf24]">FIX: branch label/aria on locale; add labelEn. → /design interaction</div>
+				</article>
+
+				<article class="border border-[#2a2418] bg-[#0d0b07] p-5">
+					<div class="mono mb-2 text-xs text-[#fbbf24]">P2</div>
+					<h2 class="mb-2 text-lg font-semibold">Preloader hides all content (~3.2s)</h2>
+					<p class="mb-4 text-sm leading-6 text-[#a0a0a0]">LayoutWrapper sets display:none until Preloader finishes (2.6s + 0.6s fade). Hurts first-contentful paint and conversion; content is invisible on first paint.</p>
+					<div class="border-l border-[#fbbf24] pl-4 text-sm leading-6 text-[#fbbf24]">FIX: render content immediately and overlay the loader, or cap near 1.2s. → /design interaction</div>
+				</article>
+
+				<article class="border border-[#2a2418] bg-[#0d0b07] p-5">
+					<div class="mono mb-2 text-xs text-[#fbbf24]">P2</div>
+					<h2 class="mb-2 text-lg font-semibold">Accent sprawl dilutes the brand anchor</h2>
+					<p class="mb-4 text-sm leading-6 text-[#a0a0a0]">Six accent colors cycle services cards; five solid-colored value cards; bright-red Community/Instagram; gold footer. Cohesive individually, busy together.</p>
+					<div class="border-l border-[#fbbf24] pl-4 text-sm leading-6 text-[#fbbf24]">FIX: make brand-blue the single action anchor; reserve others as rare secondary marks. → /design recolor</div>
+				</article>
+			</div>
+		</section>
+
+		<footer class="mono py-8 text-center text-xs tracking-widest text-[#444]">
+			Generated with CommandCode - 2026-07-09
+		</footer>
+	</main>
+</body>
+</html>

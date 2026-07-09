@@ -1,7 +1,63 @@
 "use client"
 
 import { useLocale } from "next-intl"
+import {
+  Megaphone,
+  Users,
+  TrendingUp,
+  Printer,
+  FileText,
+  LayoutDashboard,
+  CalendarDays,
+  UserCheck,
+  PartyPopper,
+  Truck,
+  Handshake,
+  Construction,
+  type LucideIcon,
+} from "lucide-react"
 import ScrollReveal from "@/components/ui/ScrollReveal"
+
+type Row = { icon: LucideIcon; labelAr: string; labelEn: string }
+
+const categories: { titleAr: string; titleEn: string; rows: Row[] }[] = [
+  {
+    titleAr: "إعلانات",
+    titleEn: "Advertising",
+    rows: [
+      { icon: Megaphone, labelAr: "حملات إعلانية", labelEn: "Ad campaigns" },
+      { icon: Users, labelAr: "استهداف الجمهور", labelEn: "Audience targeting" },
+      { icon: TrendingUp, labelAr: "تحليل النتائج", labelEn: "Results analysis" },
+    ],
+  },
+  {
+    titleAr: "طباعة",
+    titleEn: "Printing",
+    rows: [
+      { icon: Printer, labelAr: "طباعة رقمية", labelEn: "Digital printing" },
+      { icon: FileText, labelAr: "طباعة أوفست", labelEn: "Offset printing" },
+      { icon: LayoutDashboard, labelAr: "لوحات إعلانية", labelEn: "Billboards" },
+    ],
+  },
+  {
+    titleAr: "فعاليات",
+    titleEn: "Events",
+    rows: [
+      { icon: CalendarDays, labelAr: "تخطيط الفعاليات", labelEn: "Event planning" },
+      { icon: UserCheck, labelAr: "إدارة الحضور", labelEn: "Attendance management" },
+      { icon: PartyPopper, labelAr: "تنفيذ احترافي", labelEn: "Professional execution" },
+    ],
+  },
+  {
+    titleAr: "لوجستيات",
+    titleEn: "Logistics",
+    rows: [
+      { icon: Truck, labelAr: "خدمات لوجستية", labelEn: "Logistics services" },
+      { icon: Handshake, labelAr: "ضيافة احترافية", labelEn: "Professional hospitality" },
+      { icon: Construction, labelAr: "تجهيزات فنية", labelEn: "Technical setups" },
+    ],
+  },
+]
 
 export default function AllInclusiveSection() {
   const locale = useLocale()
@@ -39,97 +95,26 @@ export default function AllInclusiveSection() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          {/* Category 1 — Advertising */}
-          <ScrollReveal delay={0}>
-            <div>
-              <h4 className="font-headline-md text-headline-md mb-6 pb-4 border-b-2 border-outline-variant">
-                {isRtl ? "إعلانات" : "Advertising"}
-              </h4>
-              <ul className="space-y-4">
-                <li className="flex items-center gap-3 font-body-md">
-                  <span className="material-symbols-outlined text-primary">campaign</span>
-                  {isRtl ? "حملات إعلانية" : "Ad campaigns"}
-                </li>
-                <li className="flex items-center gap-3 font-body-md">
-                  <span className="material-symbols-outlined text-primary">diversity_3</span>
-                  {isRtl ? "استهداف الجمهور" : "Audience targeting"}
-                </li>
-                <li className="flex items-center gap-3 font-body-md">
-                  <span className="material-symbols-outlined text-primary">trending_up</span>
-                  {isRtl ? "تحليل النتائج" : "Results analysis"}
-                </li>
-              </ul>
-            </div>
-          </ScrollReveal>
-
-          {/* Category 2 — Printing */}
-          <ScrollReveal delay={100}>
-            <div>
-              <h4 className="font-headline-md text-headline-md mb-6 pb-4 border-b-2 border-outline-variant">
-                {isRtl ? "طباعة" : "Printing"}
-              </h4>
-              <ul className="space-y-4">
-                <li className="flex items-center gap-3 font-body-md">
-                  <span className="material-symbols-outlined text-primary">print</span>
-                  {isRtl ? "طباعة رقمية" : "Digital printing"}
-                </li>
-                <li className="flex items-center gap-3 font-body-md">
-                  <span className="material-symbols-outlined text-primary">description</span>
-                  {isRtl ? "طباعة أوفست" : "Offset printing"}
-                </li>
-                <li className="flex items-center gap-3 font-body-md">
-                  <span className="material-symbols-outlined text-primary">dashboard</span>
-                  {isRtl ? "لوحات إعلانية" : "Billboards"}
-                </li>
-              </ul>
-            </div>
-          </ScrollReveal>
-
-          {/* Category 3 — Events */}
-          <ScrollReveal delay={200}>
-            <div>
-              <h4 className="font-headline-md text-headline-md mb-6 pb-4 border-b-2 border-outline-variant">
-                {isRtl ? "فعاليات" : "Events"}
-              </h4>
-              <ul className="space-y-4">
-                <li className="flex items-center gap-3 font-body-md">
-                  <span className="material-symbols-outlined text-primary">event</span>
-                  {isRtl ? "تخطيط الفعاليات" : "Event planning"}
-                </li>
-                <li className="flex items-center gap-3 font-body-md">
-                  <span className="material-symbols-outlined text-primary">groups</span>
-                  {isRtl ? "إدارة الحضور" : "Attendance management"}
-                </li>
-                <li className="flex items-center gap-3 font-body-md">
-                  <span className="material-symbols-outlined text-primary">celebration</span>
-                  {isRtl ? "تنفيذ احترافي" : "Professional execution"}
-                </li>
-              </ul>
-            </div>
-          </ScrollReveal>
-
-          {/* Category 4 — Logistics */}
-          <ScrollReveal delay={300}>
-            <div>
-              <h4 className="font-headline-md text-headline-md mb-6 pb-4 border-b-2 border-outline-variant">
-                {isRtl ? "لوجستيات" : "Logistics"}
-              </h4>
-              <ul className="space-y-4">
-                <li className="flex items-center gap-3 font-body-md">
-                  <span className="material-symbols-outlined text-primary">local_shipping</span>
-                  {isRtl ? "خدمات لوجستية" : "Logistics services"}
-                </li>
-                <li className="flex items-center gap-3 font-body-md">
-                  <span className="material-symbols-outlined text-primary">handshake</span>
-                  {isRtl ? "ضيافة احترافية" : "Professional hospitality"}
-                </li>
-                <li className="flex items-center gap-3 font-body-md">
-                  <span className="material-symbols-outlined text-primary">construction</span>
-                  {isRtl ? "تجهيزات فنية" : "Technical setups"}
-                </li>
-              </ul>
-            </div>
-          </ScrollReveal>
+          {categories.map((category, ci) => (
+            <ScrollReveal key={ci} delay={ci * 100}>
+              <div>
+                <h4 className="font-headline-md text-headline-md mb-6 pb-4 border-b-2 border-outline-variant">
+                  {isRtl ? category.titleAr : category.titleEn}
+                </h4>
+                <ul className="space-y-4">
+                  {category.rows.map((row, ri) => {
+                    const Icon = row.icon
+                    return (
+                      <li key={ri} className="flex items-center gap-3 font-body-md">
+                        <Icon className="w-5 h-5 text-primary shrink-0" />
+                        {isRtl ? row.labelAr : row.labelEn}
+                      </li>
+                    )
+                  })}
+                </ul>
+              </div>
+            </ScrollReveal>
+          ))}
         </div>
       </div>
     </section>

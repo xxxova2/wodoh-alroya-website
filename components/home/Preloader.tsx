@@ -38,20 +38,24 @@ const socials = [
 
 export default function Preloader({ onComplete }: PreloaderProps) {
   const [isVisible, setIsVisible] = useState(true)
+  const reduced =
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  const loop = reduced ? 0 : Infinity
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(false)
-    }, 2600)
+    }, reduced ? 400 : 2600)
     return () => clearTimeout(timer)
-  }, [])
+  }, [reduced])
 
   useEffect(() => {
     if (!isVisible) {
-      const timer = setTimeout(() => onComplete(), 600)
+      const timer = setTimeout(() => onComplete(), reduced ? 0 : 600)
       return () => clearTimeout(timer)
     }
-  }, [isVisible, onComplete])
+  }, [isVisible, onComplete, reduced])
 
   return (
     <AnimatePresence>
@@ -74,7 +78,7 @@ export default function Preloader({ onComplete }: PreloaderProps) {
             />
             <motion.div
               animate={{ rotate: [0, 90, 0, -90, 0], y: [0, -30, 0], scale: [1, 1.1, 1] }}
-              transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
+              transition={{ duration: 25, repeat: loop, ease: "easeInOut" }}
               className="absolute top-[60%] right-[15%] w-28 h-28"
               style={{
                 border: "2px solid rgba(171, 84, 247, 0.25)",

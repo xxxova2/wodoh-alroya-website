@@ -1,5 +1,7 @@
 "use client"
 
+import { Star, Gem } from "lucide-react"
+
 interface MarqueeTickerProps {
   items: string[]
   speed?: number
@@ -20,8 +22,8 @@ export default function MarqueeTicker({
           <span className="text-[15px] md:text-[18px] font-bold uppercase whitespace-nowrap tracking-wider">
             {item}
           </span>
-          <span className="material-symbols-outlined text-[18px] opacity-60">star</span>
-          <span className="material-symbols-outlined text-[14px] opacity-40">diamond</span>
+          <Star className="w-[18px] h-[18px] opacity-60" />
+          <Gem className="w-[14px] h-[14px] opacity-40" />
         </span>
       ))}
     </>

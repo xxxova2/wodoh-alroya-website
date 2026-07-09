@@ -25,7 +25,7 @@ export default function CommunitySection() {
             </p>
             <a
               href={`/${locale}/#about`}
-              className="inline-flex items-center gap-3 border-2 border-white px-8 py-4 font-bold uppercase rounded-lg hover:bg-white hover:text-bright-red transition-all w-fit"
+              className="inline-flex items-center gap-3 border-2 border-white px-8 py-4 font-bold uppercase rounded-lg hover:bg-white hover:text-bright-red transition-all active:scale-[0.98] w-fit"
             >
               {isRtl ? "اعرف المزيد" : "Learn More"}
             </a>

@@ -158,6 +158,19 @@
     background-color: var(--color-primary);
     color: var(--color-on-primary);
   }
+
+  /* Global keyboard focus ring — visible architecture for tab users */
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  /* Don't double up on controls that already draw their own ring */
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: none;
+  }
 }
 
 @layer utilities {
@@ -225,5 +238,198 @@
   .dot-grid {
     background-image: radial-gradient(circle, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
     background-size: 32px 32px;
+  }
+}
+
+/* ============================================================
+   THEME SYSTEM — 5 colorways applied by overriding the site's
+   own semantic tokens (--color-*). "warm" = the default brand,
+   so it needs no override. Switching [data-theme] recolors the
+   entire site (chrome + content) with zero component edits.
+   ============================================================ */
+[data-theme="ocean"] {
+  --color-background: #f0f7fb;
+  --color-surface: #e3eef6;
+  --color-surface-container: #d6e7f2;
+  --color-surface-container-low: #eef5fa;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-high: #c8dcec;
+  --color-surface-container-highest: #bcd4e6;
+  --color-on-surface: #11263a;
+  --color-on-surface-variant: #3f6b86;
+  --color-on-background: #11263a;
+  --color-neutral-charcoal: #11263a;
+  --color-neutral-dark: #0a1a2a;
+  --color-outline: #b6d2e6;
+  --color-outline-variant: #cfe2ef;
+  --color-primary: #0e7490;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #cfeaf2;
+  --color-on-primary-container: #04222b;
+  --color-primary-blue: #0e7490;
+  --color-primary-gold: #38bdf8;
+  --color-on-primary-gold: #04222b;
+  --color-secondary-container: #38bdf8;
+  --color-on-secondary-container: #04222b;
+  --color-action-orange: #fb7185;
+  --color-on-action-orange: #ffffff;
+  --color-vibrant-purple: #818cf8;
+  --color-on-vibrant-purple: #04222b;
+  --color-emerald-green: #14b8a6;
+  --color-on-emerald-green: #ffffff;
+  --color-bright-red: #f43f5e;
+  --color-on-bright-red: #ffffff;
+  --color-electric-blue: #0ea5e9;
+  --color-on-electric-blue: #ffffff;
+  --color-secondary-green: #14b8a6;
+  --color-on-secondary-green: #ffffff;
+  --color-neutral-light: #f0f7fb;
+  --color-neutral: #f0f7fb;
+}
+[data-theme="sunset"] {
+  --color-background: #fff6ef;
+  --color-surface: #fdeee4;
+  --color-surface-container: #fbdcc9;
+  --color-surface-container-low: #fff8f2;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-high: #f9cfb7;
+  --color-surface-container-highest: #f6c1a3;
+  --color-on-surface: #3d1a10;
+  --color-on-surface-variant: #b5643d;
+  --color-on-background: #3d1a10;
+  --color-neutral-charcoal: #3d1a10;
+  --color-neutral-dark: #2a1109;
+  --color-outline: #f6d8c6;
+  --color-outline-variant: #fae3d6;
+  --color-primary: #f97316;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #ffe2cc;
+  --color-on-primary-container: #3d1a10;
+  --color-primary-blue: #f97316;
+  --color-primary-gold: #fb923c;
+  --color-on-primary-gold: #3d1a10;
+  --color-secondary-container: #fb923c;
+  --color-on-secondary-container: #3d1a10;
+  --color-action-orange: #ef4444;
+  --color-on-action-orange: #ffffff;
+  --color-vibrant-purple: #c084fc;
+  --color-on-vibrant-purple: #3d1a10;
+  --color-emerald-green: #22c55e;
+  --color-on-emerald-green: #ffffff;
+  --color-bright-red: #dc2626;
+  --color-on-bright-red: #ffffff;
+  --color-electric-blue: #f97316;
+  --color-on-electric-blue: #ffffff;
+  --color-secondary-green: #22c55e;
+  --color-on-secondary-green: #ffffff;
+  --color-neutral-light: #fff6ef;
+  --color-neutral: #fff6ef;
+}
+[data-theme="violet"] {
+  --color-background: #f6f5fc;
+  --color-surface: #ece9f9;
+  --color-surface-container: #e1dcf4;
+  --color-surface-container-low: #f7f5fc;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-high: #d5cdee;
+  --color-surface-container-highest: #c9bfe6;
+  --color-on-surface: #211a3a;
+  --color-on-surface-variant: #6b5ca8;
+  --color-on-background: #211a3a;
+  --color-neutral-charcoal: #211a3a;
+  --color-neutral-dark: #15102a;
+  --color-outline: #d8d2f0;
+  --color-outline-variant: #e7e2f6;
+  --color-primary: #6d28d9;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #e4dcfa;
+  --color-on-primary-container: #211a3a;
+  --color-primary-blue: #6d28d9;
+  --color-primary-gold: #a78bfa;
+  --color-on-primary-gold: #211a3a;
+  --color-secondary-container: #a78bfa;
+  --color-on-secondary-container: #211a3a;
+  --color-action-orange: #fb7185;
+  --color-on-action-orange: #ffffff;
+  --color-vibrant-purple: #c4b5fd;
+  --color-on-vibrant-purple: #211a3a;
+  --color-emerald-green: #10b981;
+  --color-on-emerald-green: #ffffff;
+  --color-bright-red: #ef4444;
+  --color-on-bright-red: #ffffff;
+  --color-electric-blue: #818cf8;
+  --color-on-electric-blue: #ffffff;
+  --color-secondary-green: #10b981;
+  --color-on-secondary-green: #ffffff;
+  --color-neutral-light: #f6f5fc;
+  --color-neutral: #f6f5fc;
+}
+[data-theme="midnight"] {
+  --color-background: #0b0f14;
+  --color-surface: #141a22;
+  --color-surface-container: #1b232e;
+  --color-surface-container-low: #10161e;
+  --color-surface-container-lowest: #161d27;
+  --color-surface-container-high: #202b39;
+  --color-surface-container-highest: #283447;
+  --color-on-surface: #e8eef5;
+  --color-on-surface-variant: #8b97a8;
+  --color-on-background: #e8eef5;
+  --color-neutral-charcoal: #e8eef5;
+  --color-neutral-dark: #06090d;
+  --color-outline: #232c38;
+  --color-outline-variant: #2b3744;
+  --color-primary: #22d3ee;
+  --color-on-primary: #062329;
+  --color-primary-container: #0e2a33;
+  --color-on-primary-container: #aef1fb;
+  --color-primary-blue: #22d3ee;
+  --color-primary-gold: #38bdf8;
+  --color-on-primary-gold: #062329;
+  --color-secondary-container: #38bdf8;
+  --color-on-secondary-container: #062329;
+  --color-action-orange: #fb7185;
+  --color-on-action-orange: #062329;
+  --color-vibrant-purple: #a78bfa;
+  --color-on-vibrant-purple: #062329;
+  --color-emerald-green: #34d399;
+  --color-on-emerald-green: #062329;
+  --color-bright-red: #f87171;
+  --color-on-bright-red: #062329;
+  --color-electric-blue: #38bdf8;
+  --color-on-electric-blue: #062329;
+  --color-secondary-green: #34d399;
+  --color-on-secondary-green: #062329;
+  --color-neutral-light: #0b0f14;
+  --color-neutral: #0b0f14;
+}
+
+/* FOUC guard: disable transitions for the very first frame */
+.preload * {
+  transition: none !important;
+}
+
+/* Floating depth blobs (theme-aware) */
+@keyframes floatBlob {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(24px, -34px) scale(1.12); }
+}
+@keyframes floatBlobSlow {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-30px, 26px) scale(1.08); }
+}
+.animate-blob { animation: floatBlob 14s ease-in-out infinite; }
+.animate-blob-slow { animation: floatBlobSlow 20s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .animate-blob,
+  .animate-blob-slow { animation: none; }
+  /* Stop decorative loops: marquee and the hero pulse/scroll-cue dots */
+  .animate-marquee { animation: none; }
+  .animate-pulse { animation: none; }
+  /* Respect users who want no motion: neutralize remaining infinite loops */
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
   }
 }

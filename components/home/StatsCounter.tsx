@@ -12,6 +12,13 @@ function AnimatedNumber({ value, suffix = "" }: { value: number; suffix?: string
   const hasAnimated = useRef(false)
 
   useEffect(() => {
+    const reduce =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    if (reduce) {
+      setCount(value)
+      return
+    }
     if (isInView && !hasAnimated.current) {
       hasAnimated.current = true
       const duration = 2000
@@ -48,7 +55,7 @@ export default function StatsCounter() {
               <div className="font-headline text-[48px] md:text-[64px] font-extrabold mb-2 leading-none tracking-tight">
                 <AnimatedNumber value={stat.value} suffix={stat.suffix} />
               </div>
-              <p className="font-label-sm text-surface-variant/60 uppercase tracking-wider">
+              <p className="font-label-sm text-surface/60 uppercase tracking-wider">
                 {isRtl ? stat.labelAr : stat.labelEn}
               </p>
             </div>
