@@ -1,105 +1,104 @@
 @import "tailwindcss";
 
 @theme {
-  /* ===== Units.gr-inspired warm palette ===== */
-  /* Warm beige canvas */
-  --color-background: #f5f0e6;
-  --color-surface: #f5f0e6;
-  --color-surface-container: #efe8da;
-  --color-surface-container-low: #fbf8f1;
+  /* ===== Units.gr warm cream palette ===== */
+  --color-background: #f4e9e1;
+  --color-surface: #f4e9e1;
+  --color-surface-container: #efe3d9;
+  --color-surface-container-low: #faf3ed;
   --color-surface-container-lowest: #ffffff;
-  --color-surface-container-high: #e7dfce;
-  --color-surface-container-highest: #ded4bf;
+  --color-surface-container-high: #e5d9ce;
+  --color-surface-container-highest: #d9cdc0;
 
   /* Charcoal text */
-  --color-on-surface: #1a1a1a;
-  --color-on-surface-variant: #4a463f;
-  --color-on-background: #1a1a1a;
-  --color-neutral-charcoal: #1a1a1a;
+  --color-on-surface: #000;
+  --color-on-surface-variant: #3a3530;
+  --color-on-background: #000;
+  --color-neutral-charcoal: #000;
   --color-neutral-dark: #14110c;
 
   --color-outline: #c9bfa8;
   --color-outline-variant: #ddd3bd;
 
   /* Brand blue */
-  --color-primary: #005ab5;
+  --color-primary: #0072e3;
   --color-on-primary: #ffffff;
   --color-primary-container: #d7e6f7;
   --color-on-primary-container: #001b3e;
-  --color-primary-blue: #005ab5;
+  --color-primary-blue: #0072e3;
 
-  /* Vibrant flat accent blocks (units.gr language) */
-  --color-primary-gold: #ffb204; /* sunshine yellow */
-  --color-on-primary-gold: #1a1a1a;
-  --color-secondary-container: #ffb204;
-  --color-on-secondary-container: #1a1a1a;
+  /* Units.gr vibrant flat accent blocks */
+  --color-primary-gold: #ffb200;
+  --color-on-primary-gold: #000;
+  --color-secondary-container: #ffb200;
+  --color-on-secondary-container: #000;
 
-  --color-action-orange: #ff6b35; /* coral */
-  --color-on-action-orange: #ffffff;
+  --color-action-orange: #ff8e0a;
+  --color-on-action-orange: #000;
 
-  --color-vibrant-purple: #a78bfa; /* lavender */
-  --color-on-vibrant-purple: #1a1a1a;
+  --color-vibrant-purple: #AB54F7;
+  --color-on-vibrant-purple: #000;
 
-  --color-emerald-green: #1fbf75; /* bright green */
-  --color-on-emerald-green: #ffffff;
+  --color-emerald-green: #1BE349;
+  --color-on-emerald-green: #000;
 
-  --color-bright-red: #f23b2f; /* bold red */
+  --color-bright-red: #ea3737;
   --color-on-bright-red: #ffffff;
 
-  --color-electric-blue: #2b59ff; /* electric blue */
+  --color-electric-blue: #0072e3;
   --color-on-electric-blue: #ffffff;
 
-  --color-secondary-green: #1fbf75;
-  --color-on-secondary-green: #ffffff;
+  --color-secondary-green: #1BE349;
+  --color-on-secondary-green: #000;
 
   /* Neutral surfaces used by sub-pages */
-  --color-neutral-light: #f5f0e6;
-  --color-neutral: #f5f0e6;
+  --color-neutral-light: #f4e9e1;
+  --color-neutral: #f4e9e1;
 
   /* ===== Typography ===== */
-  --font-display: "Hanken Grotesk", "Inter", sans-serif;
-  --font-headline: "Hanken Grotesk", "Inter", sans-serif;
-  --font-body: "Inter", sans-serif;
+  --font-display: "Inter", -apple-system, "Segoe UI", arial, sans-serif;
+  --font-headline: "Inter", -apple-system, "Segoe UI", arial, sans-serif;
+  --font-body: "Inter", -apple-system, "Segoe UI", arial, sans-serif;
   --font-mono: "JetBrains Mono", monospace;
-  --font-arabic-heading: "Scheherazade New", "Amiri", serif;
-  --font-arabic: "Amiri", "Scheherazade New", serif;
+  --font-arabic-heading: "Inter", -apple-system, "Segoe UI", arial, sans-serif;
+  --font-arabic: "Inter", -apple-system, "Segoe UI", arial, sans-serif;
 
-  /* ===== Type scale ===== */
-  --text-display-lg: 72px;
-  --text-display-lg--line-height: 76px;
+  /* ===== Type scale (Units.gr heavy weights) ===== */
+  --text-display-lg: clamp(38px, 5vw, 96px);
+  --text-display-lg--line-height: 100%;
   --text-display-lg--letter-spacing: -0.02em;
-  --text-display-lg--font-weight: 800;
-  --text-headline-lg: 48px;
-  --text-headline-lg--line-height: 52px;
+  --text-display-lg--font-weight: 900;
+  --text-headline-lg: clamp(28px, 2.292vw, 44px);
+  --text-headline-lg--line-height: 100%;
   --text-headline-lg--letter-spacing: -0.01em;
-  --text-headline-lg--font-weight: 700;
-  --text-headline-lg-mobile: 32px;
-  --text-headline-lg-mobile--line-height: 36px;
-  --text-headline-lg-mobile--font-weight: 700;
-  --text-headline-md: 32px;
-  --text-headline-md--line-height: 40px;
-  --text-headline-md--font-weight: 700;
-  --text-body-lg: 18px;
-  --text-body-lg--line-height: 28px;
+  --text-headline-lg--font-weight: 900;
+  --text-headline-lg-mobile: clamp(22px, 1.771vw, 34px);
+  --text-headline-lg-mobile--line-height: 100%;
+  --text-headline-lg-mobile--font-weight: 900;
+  --text-headline-md: clamp(22px, 1.354vw, 26px);
+  --text-headline-md--line-height: 110%;
+  --text-headline-md--font-weight: 900;
+  --text-body-lg: clamp(16px, 0.938vw, 18px);
+  --text-body-lg--line-height: 180%;
   --text-body-lg--font-weight: 400;
-  --text-body-md: 16px;
-  --text-body-md--line-height: 24px;
+  --text-body-md: clamp(14px, 1.042vw, 20px);
+  --text-body-md--line-height: 120%;
   --text-body-md--font-weight: 400;
-  --text-label-sm: 12px;
-  --text-label-sm--line-height: 16px;
-  --text-label-sm--letter-spacing: 0.05em;
-  --text-label-sm--font-weight: 500;
+  --text-label-sm: clamp(12px, 0.833vw, 16px);
+  --text-label-sm--line-height: 120%;
+  --text-label-sm--letter-spacing: 0.02em;
+  --text-label-sm--font-weight: 700;
 
-  /* ===== Radius ===== */
+  /* ===== Radius (Units.gr large rounded corners) ===== */
   --radius-sm: 0.5rem;
   --radius-md: 1rem;
   --radius-lg: 1.5rem;
-  --radius-xl: 2rem;
+  --radius-xl: clamp(30px, 2.604vw, 50px);
   --radius-full: 9999px;
 
   /* ===== Spacing scale ===== */
   --spacing-unit: 8px;
-  --spacing-gutter: 24px;
+  --spacing-gutter: clamp(10px, 1.563vw, 30px);
   --spacing-margin-mobile: 16px;
   --spacing-margin-desktop: 64px;
   --spacing-max-width: 1440px;
@@ -159,13 +158,11 @@
     color: var(--color-on-primary);
   }
 
-  /* Global keyboard focus ring — visible architecture for tab users */
   :focus-visible {
     outline: 2px solid var(--color-primary);
     outline-offset: 2px;
     border-radius: 4px;
   }
-  /* Don't double up on controls that already draw their own ring */
   input:focus-visible,
   textarea:focus-visible,
   select:focus-visible {
@@ -192,15 +189,15 @@
     transform: scale(1.1) rotate(5deg);
   }
 
-  /* ===== Sub-page token shims (units.gr palette) ===== */
+  /* ===== Sub-page token shims (Units.gr palette) ===== */
   .bg-gradient-dark {
     background: linear-gradient(135deg, #14110c 0%, #2a2418 100%);
   }
   .bg-gradient-gold {
-    background: linear-gradient(135deg, #ffb204 0%, #ff8a00 100%);
+    background: linear-gradient(135deg, #ffb200 0%, #ff8a00 100%);
   }
   .bg-gradient-primary {
-    background: linear-gradient(135deg, #005ab5 0%, #2b59ff 100%);
+    background: linear-gradient(135deg, #0072e3 0%, #2b59ff 100%);
   }
   .text-neutral-dark { color: var(--color-neutral-dark); }
   .text-neutral-charcoal { color: var(--color-neutral-charcoal); }
@@ -228,7 +225,7 @@
   }
   .font-arabic-heading {
     font-family: var(--font-arabic-heading);
-    font-weight: 700;
+    font-weight: 900;
   }
   .font-arabic {
     font-family: var(--font-arabic);
@@ -238,6 +235,11 @@
   .dot-grid {
     background-image: radial-gradient(circle, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
     background-size: 32px 32px;
+  }
+
+  /* ===== Units.gr transition easing ===== */
+  .transition-units {
+    transition-timing-function: cubic-bezier(.19, 1, .22, 1);
   }
 }
 
@@ -423,10 +425,8 @@
 @media (prefers-reduced-motion: reduce) {
   .animate-blob,
   .animate-blob-slow { animation: none; }
-  /* Stop decorative loops: marquee and the hero pulse/scroll-cue dots */
   .animate-marquee { animation: none; }
   .animate-pulse { animation: none; }
-  /* Respect users who want no motion: neutralize remaining infinite loops */
   *, *::before, *::after {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;

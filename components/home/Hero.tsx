@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef } from "react"
 import { motion } from "framer-motion"
 import { useLocale } from "next-intl"
 import dynamic from "next/dynamic"
@@ -63,7 +63,8 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen flex items-center overflow-hidden bg-background"
+      className="relative min-h-[calc(100dvh-50px)] flex items-center justify-center overflow-hidden mx-2.5 md:mx-2.5"
+      style={{ borderRadius: "var(--radius-xl)" }}
     >
       {/* SVG Photo Tunnel Background */}
       <div
@@ -103,7 +104,6 @@ export default function Hero() {
                 </clipPath>
               )
             })}
-            {/* Center circle clip for innermost */}
             <clipPath id="center-clip">
               <circle cx="500" cy="500" r="75" />
             </clipPath>
@@ -123,7 +123,6 @@ export default function Hero() {
             </g>
           ))}
 
-          {/* Center circle */}
           <g opacity={0.18}>
             <image
               href={tunnelImages[4]}
@@ -136,7 +135,6 @@ export default function Hero() {
             />
           </g>
 
-          {/* Diagonal converging lines */}
           {[0, 45, 90, 135, 180, 225, 270, 315].map((angle) => {
             const rad = (angle * Math.PI) / 180
             const x2 = 500 + Math.cos(rad) * 500
@@ -148,14 +146,13 @@ export default function Hero() {
                 y1="500"
                 x2={x2}
                 y2={y2}
-                stroke="#1a1a1a"
+                stroke="#000"
                 strokeOpacity={0.06}
                 strokeWidth="1"
               />
             )
           })}
 
-          {/* Ring border lines */}
           {rings.map((_, i) => {
             const s = rings[i].scale
             const m = (1 - s) * 500
@@ -170,7 +167,7 @@ export default function Hero() {
                 key={`border-${i}`}
                 points={pts.join(" ")}
                 fill="none"
-                stroke="#1a1a1a"
+                stroke="#000"
                 strokeOpacity={0.04}
                 strokeWidth="0.5"
               />
@@ -179,50 +176,36 @@ export default function Hero() {
         </svg>
       </div>
 
-      {/* Themed WebGL 3D accent (decorative, lazy + error-safe) */}
+      {/* Themed WebGL 3D accent */}
       <div className="absolute inset-0 z-[1] pointer-events-none opacity-60">
         <ErrorBoundary>
           <Scene3D />
         </ErrorBoundary>
       </div>
 
-      {/* Theme-aware floating depth blobs (subtle, behind content) */}
+      {/* Theme-aware floating depth blobs */}
       <div className="pointer-events-none absolute inset-0 z-0">
         <div className="animate-blob absolute -top-24 right-10 w-96 h-96 rounded-full bg-primary/10 blur-3xl" />
         <div className="animate-blob-slow absolute top-1/3 -left-24 w-80 h-80 rounded-full bg-primary/8 blur-3xl" />
       </div>
 
-      {/* Beige scrim: pull focus to the text panel on the RIGHT for both languages */}
-      <div className="absolute inset-0 z-[1] bg-gradient-to-r from-background/10 via-background/55 to-background" />
+      {/* Dark overlay scrim */}
+      <div className="absolute inset-0 z-[1] rounded-[inherit]" style={{ background: "rgba(0,0,0,.2)" }} />
 
-      {/* Logo overlay, top corner — beige chip so the white-bg logo blends on cream */}
-      <div
-        className={`absolute top-6 z-[2] ${
-          isRtl ? "right-6 md:right-12" : "left-6 md:left-12"
-        }`}
-      >
-        <div className="bg-background/85 backdrop-blur-sm rounded-lg p-2 shadow-sm ring-1 ring-on-surface/10">
-          <img
-            src="/logo.jpg"
-            alt="وضوح الرؤية"
-            className="w-16 h-16 md:w-20 md:h-20 object-contain"
-          />
-        </div>
-      </div>
-
-      {/* Content */}
-      <div className="relative z-10 w-full max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop pt-32 pb-24 lg:pt-36">
+      {/* Content — centered for Units.gr style */}
+      <div className="relative z-10 w-full max-w-max-width mx-auto px-6 md:px-12 py-20">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1], delay: 0.3 }}
-          className={`max-w-2xl ${isRtl ? "text-right" : "text-left"}`}
+          className={`max-w-3xl mx-auto text-center ${isRtl ? "font-arabic-heading" : ""}`}
         >
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary/10 text-primary text-label-sm font-bold uppercase tracking-widest mb-6"
+            className="inline-flex items-center gap-2 px-5 py-2 bg-white/15 backdrop-blur-sm text-white text-label-sm font-bold uppercase tracking-widest mb-6"
+            style={{ borderRadius: "var(--radius-full)" }}
           >
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-green animate-pulse" />
             {locale === "ar" ? "ريادة سعودية منذ 2009" : "Saudi leadership since 2009"}
@@ -232,7 +215,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.8 }}
-            className={`text-display-lg font-extrabold text-on-surface mb-6 leading-tight ${isRtl ? "font-arabic-heading" : "font-display"}`}
+            className="text-display-lg font-black text-white mb-6 leading-none"
           >
             {locale === "ar" ? (
               <>وضوح<br />الرؤية</>
@@ -245,7 +228,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9, duration: 0.8 }}
-            className="text-body-lg text-on-surface-variant max-w-xl mb-10 leading-relaxed"
+            className="text-body-lg text-white/80 max-w-xl mx-auto mb-10 leading-relaxed"
           >
             {locale === "ar"
               ? "شريكك في التميز والإبداع منذ 15 عاماً — حلول متكاملة في الدعاية والإعلان وإدارة الفعاليات والطباعة"
@@ -256,37 +239,43 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.1, duration: 0.6 }}
-            className="flex flex-col sm:flex-row items-start gap-4"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             <a
               href="#contact"
-              className="inline-flex items-center gap-3 bg-secondary-container text-on-secondary-container px-8 py-4 font-bold uppercase rounded-lg hover:bg-white hover:text-primary transition-all duration-300 text-sm group active:scale-[0.98]"
+              className="inline-flex items-center gap-3 bg-vibrant-purple text-white px-8 py-4 font-bold uppercase text-sm group active:scale-[0.98] transition-all duration-300"
+              style={{
+                borderRadius: "var(--radius-xl)",
+              }}
             >
               {locale === "ar" ? "اطلب استشارة مجانية" : "Get a Free Consultation"}
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
             <a
               href="#portfolio"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-lg border-2 border-on-surface/15 text-on-surface font-bold text-sm hover:bg-on-surface/5 transition-all active:scale-[0.98]"
+              className="inline-flex items-center gap-2 px-8 py-4 border-2 border-white/30 text-white font-bold text-sm hover:bg-white/10 transition-all active:scale-[0.98]"
+              style={{
+                borderRadius: "var(--radius-xl)",
+              }}
             >
               {locale === "ar" ? "استعرض أعمالنا" : "View Our Work"}
             </a>
           </motion.div>
         </motion.div>
 
-        {/* Scroll cue */}
+        {/* Scroll cue — hidden on mobile to avoid overlapping CTAs */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2 }}
-          className={`absolute bottom-8 ${isRtl ? "right-margin-desktop" : "left-margin-desktop"} flex flex-col items-center gap-2`}
+          className="hidden md:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2"
         >
-          <span className="font-label-sm text-on-surface/40 uppercase tracking-widest">
+          <span className="text-label-sm text-white/40 uppercase tracking-widest font-bold">
             {locale === "ar" ? "اسفل" : "SCROLL"}
           </span>
-          <div className="w-5 h-8 rounded-full border border-on-surface/20 flex items-start justify-center p-1">
+          <div className="w-5 h-8 rounded-full border border-white/20 flex items-start justify-center p-1">
             <motion.div
-              className="w-1 h-2 rounded-full bg-primary"
+              className="w-1 h-2 rounded-full bg-white"
               animate={{ y: [0, 12, 0], opacity: [1, 0.3, 1] }}
               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             />

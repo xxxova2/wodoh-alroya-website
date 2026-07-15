@@ -48,14 +48,14 @@ export default function InstagramSection() {
   const isRtl = locale === "ar"
 
   return (
-    <section className="bg-on-background text-white">
+    <section className="bg-neutral-dark text-white overflow-hidden mx-2.5 md:px-0 md:mx-2.5" style={{ borderRadius: "var(--radius-xl)" }}>
       {/* Heading bar */}
-      <div className="px-margin-mobile md:px-margin-desktop py-16 md:py-20 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+      <div className="px-8 md:px-12 py-16 md:py-20 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
         <div>
-          <span className="font-label-sm uppercase tracking-widest text-vibrant-purple block mb-3">
+          <span className="text-vibrant-purple text-label-sm uppercase tracking-widest block mb-3 font-bold">
             {isRtl ? "إنستغرام" : "Instagram"}
           </span>
-          <h2 className="font-headline-lg text-headline-lg leading-tight">
+          <h2 className="text-headline-lg leading-tight font-black">
             {isRtl ? "ابقَ على تواصل" : "Staying Connected"}
           </h2>
         </div>
@@ -63,7 +63,8 @@ export default function InstagramSection() {
           href={siteConfig.social.instagram}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 bg-bright-red hover:bg-action-orange transition-colors px-6 py-3 rounded-lg font-bold text-[14px] uppercase tracking-wider active:scale-[0.98]"
+          className="inline-flex items-center gap-2 bg-vibrant-purple hover:bg-vibrant-purple/80 transition-colors px-6 py-3 font-bold text-[14px] uppercase tracking-wider active:scale-[0.98]"
+          style={{ borderRadius: "var(--radius-full)" }}
         >
           <Camera className="w-5 h-5" />
           {isRtl ? "@wodohalroya تابعنا على" : "Follow @wodohalroya"}

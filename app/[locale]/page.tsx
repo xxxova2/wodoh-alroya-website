@@ -31,10 +31,10 @@ export default function HomePage() {
         <Hero />
       </section>
 
-      {/* Decorative marquee */}
-      <MarqueeTicker items={marqueeItems} speed={28} />
+      {/* Decorative marquee — red */}
+      <MarqueeTicker items={marqueeItems} speed={28} className="bg-bright-red text-white" />
 
-      {/* 04 — About (moved up to match original flow) */}
+      {/* 04 — About */}
       <section id="about">
         <AboutLocation />
         <CommunitySection />
@@ -53,7 +53,7 @@ export default function HomePage() {
         <InstagramSection />
       </section>
 
-      {/* Decorative marquee */}
+      {/* Decorative marquee — blue */}
       <MarqueeTicker items={marqueeItems2} speed={32} className="bg-primary text-white" />
 
       {/* 05 — Contact */}

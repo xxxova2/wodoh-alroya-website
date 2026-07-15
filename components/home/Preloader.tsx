@@ -66,7 +66,7 @@ export default function Preloader({ onComplete }: PreloaderProps) {
           transition={{ duration: 0.6, ease: "easeInOut" }}
           className="fixed inset-0 z-[100] flex flex-col items-center justify-center overflow-hidden"
           style={{
-            background: "linear-gradient(160deg, #005ab5 0%, #0a0e1a 60%, #05080f 100%)",
+            background: "linear-gradient(160deg, #0072e3 0%, #0a0e1a 60%, #05080f 100%)",
           }}
         >
           {/* 3D floating geometric shapes */}
@@ -88,14 +88,15 @@ export default function Preloader({ onComplete }: PreloaderProps) {
             <motion.div
               animate={{ x: [0, 80, 0, -80, 0], y: [0, -80, 0, 80, 0] }}
               transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-              className="absolute top-[30%] right-[30%] w-4 h-4 rounded-full bg-secondary-container/30"
+              className="absolute top-[30%] right-[30%] w-4 h-4 rounded-full"
+              style={{ background: "rgba(255, 178, 0, 0.3)" }}
             />
             <motion.div
               animate={{ rotate: [0, 360], scale: [1, 1.15, 1], opacity: [0.2, 0.4, 0.2] }}
               transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
               className="absolute bottom-[25%] left-[25%] w-20 h-20"
               style={{
-                background: "rgba(0, 168, 107, 0.15)",
+                background: "rgba(27, 227, 73, 0.15)",
                 clipPath: "polygon(50% 0%, 0% 100%, 100% 100%)",
               }}
             />
@@ -112,18 +113,20 @@ export default function Preloader({ onComplete }: PreloaderProps) {
             <motion.div
               animate={{
                 boxShadow: [
-                  "0 0 20px rgba(0, 90, 181, 0.3)",
-                  "0 0 40px rgba(0, 90, 181, 0.6)",
-                  "0 0 20px rgba(0, 90, 181, 0.3)",
+                  "0 0 20px rgba(0, 114, 227, 0.3)",
+                  "0 0 40px rgba(0, 114, 227, 0.6)",
+                  "0 0 20px rgba(0, 114, 227, 0.3)",
                 ],
               }}
               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              className="w-28 h-28 lg:w-32 lg:h-32 rounded-2xl bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/20"
+              className="w-28 h-28 lg:w-32 lg:h-32 bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/20"
+              style={{ borderRadius: "var(--radius-xl)" }}
             >
               <img
                 src="/logo.jpg"
                 alt="وضوح الرؤية"
-                className="w-20 h-20 lg:w-24 lg:h-24 object-contain rounded-xl"
+                className="w-20 h-20 lg:w-24 lg:h-24 object-contain"
+                style={{ borderRadius: "var(--radius-xl)" }}
               />
             </motion.div>
 

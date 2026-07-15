@@ -47,27 +47,28 @@ export default function Footer() {
   const isRtl = locale === "ar"
 
   return (
-    <footer className="bg-surface-container text-on-surface">
-      {/* Newsletter split */}
-      <div className="flex flex-col md:flex-row">
-        <div className="bg-bright-red text-white px-margin-mobile md:px-margin-desktop py-12 md:py-16 flex items-center md:w-1/2">
+    <footer className="bg-surface text-on-surface">
+      {/* Newsletter split — Units.gr two-tone bar */}
+      <div className="flex flex-col md:flex-row mx-2.5 md:mx-2.5 overflow-hidden" style={{ borderRadius: "var(--radius-xl)" }}>
+        <div className="bg-bright-red text-white px-6 md:px-12 py-10 md:py-12 flex items-center md:w-1/2">
           <div>
-            <h3 className="font-headline-md text-headline-md font-bold mb-2">
+            <h3 className="text-headline-md font-black mb-2">
               {isRtl ? "انضم للنشرة البريدية" : "Join our newsletter"}
             </h3>
-            <p className="text-white/80 font-body-md">
+            <p className="text-white/80 text-body-md">
               {isRtl ? "اشترك لتصلك آخر أخبارنا وعروضنا" : "Get our latest news and offers in your inbox"}
             </p>
           </div>
         </div>
-        <div className="bg-primary-gold px-margin-mobile md:px-margin-desktop py-12 md:py-16 flex items-center md:w-1/2">
+        <div className="bg-primary-gold px-6 md:px-12 py-10 md:py-12 flex items-center md:w-1/2">
           <form
             className="flex items-center gap-2 w-full"
             action={`mailto:${siteConfig.email}`}
             method="post"
           >
             <input
-              className="w-full bg-white/90 border-none focus:ring-0 rounded-lg px-4 py-3 font-body-md outline-none text-on-surface placeholder:text-on-surface/50"
+              className="w-full bg-white/90 border-none focus:ring-0 px-4 py-3 text-body-md outline-none text-on-surface placeholder:text-on-surface/50"
+              style={{ borderRadius: "var(--radius-xl)" }}
               placeholder={isRtl ? "بريدك الإلكتروني" : "Your email here"}
               type="email"
               name="email"
@@ -76,7 +77,8 @@ export default function Footer() {
             <button
               type="submit"
               aria-label="Subscribe"
-              className="shrink-0 w-12 h-12 rounded-lg bg-on-surface text-surface flex items-center justify-center hover:bg-neutral-dark transition-colors active:scale-95"
+              className="shrink-0 w-12 h-12 bg-on-surface text-surface flex items-center justify-center hover:bg-neutral-dark transition-colors active:scale-95"
+              style={{ borderRadius: "var(--radius-xl)" }}
             >
               <span className="sr-only">Subscribe</span>
               <ArrowRight className="w-5 h-5" />
@@ -86,38 +88,39 @@ export default function Footer() {
       </div>
 
       {/* Main footer grid */}
-      <div className="px-margin-mobile md:px-margin-desktop py-16 max-w-max-width mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+      <div className="px-6 md:px-2.5 py-16 max-w-max-width mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {/* Brand */}
           <div className="md:col-span-1">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-lg bg-primary flex items-center justify-center">
-                <img src="/logo.jpg" alt="وضوح الرؤية" className="w-9 h-9 object-contain rounded" />
+              <div className="w-12 h-12 bg-primary flex items-center justify-center" style={{ borderRadius: "var(--radius-xl)" }}>
+                <img src="/logo.jpg" alt="وضوح الرؤية" className="w-9 h-9 object-contain" />
               </div>
               <div>
-                <h3 className="font-headline-md font-bold">
+                <h3 className="text-headline-md font-black">
                   {locale === "ar" ? "وضوح الرؤية" : "Wodoh Alroya"}
                 </h3>
-                <p className="text-on-surface/50 text-label-sm uppercase tracking-wider mt-0.5">
+                <p className="text-on-surface/40 text-label-sm uppercase tracking-wider mt-0.5 font-bold">
                   {locale === "ar" ? "للدعاية والإعلان" : "Advertising"}
                 </p>
               </div>
             </div>
-            <p className="text-on-surface/70 font-body-md leading-relaxed max-w-xs">
+            <p className="text-on-surface/60 text-body-md leading-relaxed max-w-xs">
               {locale === "ar"
                 ? "شريكك الموثوق في عالم الدعاية والإعلان وإدارة الفعاليات منذ 15 عاماً"
                 : "Your trusted partner in advertising and event management for over 15 years"}
             </p>
-            <div className="flex gap-3 mt-8">
+            <div className="flex gap-2 mt-8">
               {socials.slice(0, 5).map((s) => (
                 <a
                   key={s.label}
                   href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-lg bg-surface-container-lowest flex items-center justify-center hover:bg-primary hover:text-white transition-all"
+                  className="w-9 h-9 bg-neutral-dark flex items-center justify-center hover:bg-primary transition-all"
+                  style={{ borderRadius: "var(--radius-xl)" }}
                 >
-                  <svg viewBox="0 0 24 24" className="w-4 h-4 fill-on-surface">
+                  <svg viewBox="0 0 24 24" className="w-4 h-4 fill-white">
                     <path d={s.path} />
                   </svg>
                 </a>
@@ -127,7 +130,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-label-sm text-on-surface/50 uppercase tracking-widest mb-6">
+            <h4 className="text-label-sm text-on-surface/40 uppercase tracking-widest mb-6 font-bold">
               {isRtl ? "روابط سريعة" : "Quick Links"}
             </h4>
             <ul className="space-y-3">
@@ -135,7 +138,7 @@ export default function Footer() {
                 <li key={link.key}>
                   <Link
                     href={`/${locale}/${link.href}`}
-                    className="font-body-md text-on-surface/70 hover:text-primary transition-colors"
+                    className="text-body-md text-on-surface/60 hover:text-primary transition-colors"
                   >
                     {link.key === "home"
                       ? isRtl ? "الرئيسية" : "Home"
@@ -156,10 +159,10 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h4 className="font-label-sm text-on-surface/50 uppercase tracking-widest mb-6">
+            <h4 className="text-label-sm text-on-surface/40 uppercase tracking-widest mb-6 font-bold">
               {isRtl ? "معلومات التواصل" : "Contact Info"}
             </h4>
-            <ul className="space-y-4 font-body-md text-on-surface/70">
+            <ul className="space-y-4 text-body-md text-on-surface/60">
               <li>{isRtl ? "المملكة العربية السعودية" : "Saudi Arabia"}</li>
               <li className="font-mono" dir="ltr">{siteConfig.phone}</li>
               <li>{siteConfig.email}</li>
@@ -167,13 +170,14 @@ export default function Footer() {
           </div>
 
           {/* CTA */}
-          <div className="bg-primary text-white rounded-lg p-6 flex flex-col justify-between">
-            <p className="font-body-md leading-relaxed">
+          <div className="bg-primary text-white p-6 flex flex-col justify-between" style={{ borderRadius: "var(--radius-xl)" }}>
+            <p className="text-body-md leading-relaxed">
               {isRtl ? "لنتحدث عن مشروعك القادم" : "Let's talk about your next project"}
             </p>
             <a
               href="#contact"
-              className="mt-4 inline-flex items-center gap-2 bg-primary-gold text-on-surface px-5 py-3 rounded-lg font-bold text-sm uppercase tracking-wider hover:bg-white transition-colors active:scale-[0.98] w-fit"
+              className="mt-4 inline-flex items-center gap-2 bg-primary-gold text-on-primary-gold px-5 py-3 font-bold text-sm uppercase tracking-wider hover:bg-white transition-colors active:scale-[0.98] w-fit"
+              style={{ borderRadius: "var(--radius-full)" }}
             >
               {isRtl ? "اطلب استشارة" : "Get a quote"}
             </a>
@@ -181,22 +185,22 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Big wordmark */}
-      <div className="border-t border-outline/30 relative overflow-hidden dot-grid">
-        <div className="px-margin-mobile md:px-margin-desktop py-10 max-w-max-width mx-auto">
-          <p className={`font-extrabold leading-none tracking-tight text-[14vw] md:text-[10vw] text-on-surface/90 select-none ${isRtl ? "font-arabic-heading" : "font-display"}`}>
+      {/* Big wordmark — Units.gr signature */}
+      <div className="border-t border-on-surface/10 relative overflow-hidden dot-grid">
+        <div className="px-6 md:px-2.5 py-10 max-w-max-width mx-auto">
+          <p className={`font-black leading-none tracking-tight text-[14vw] md:text-[10vw] text-on-surface/90 select-none ${isRtl ? "font-arabic-heading" : ""}`}>
             {locale === "ar" ? "وضوح الرؤية" : "Wodoh Alroya"}
           </p>
         </div>
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-outline/30">
-        <div className="px-margin-mobile md:px-margin-desktop py-6 max-w-max-width mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="font-label-sm text-on-surface/40 tracking-wide">
+      <div className="border-t border-on-surface/10">
+        <div className="px-6 md:px-2.5 py-6 max-w-max-width mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-label-sm text-on-surface/30 tracking-wide font-bold">
             &copy; {new Date().getFullYear()} {locale === "ar" ? "وضوح الرؤية للدعاية والإعلان" : "Wodoh Alroya Advertising"}
           </p>
-          <div className="flex gap-6 font-label-sm text-on-surface/40">
+          <div className="flex gap-6 text-label-sm text-on-surface/30 font-bold">
             <a href="#" className="hover:text-primary transition-colors">
               {isRtl ? "سياسة الخصوصية" : "Privacy Policy"}
             </a>

@@ -47,15 +47,15 @@ export default function StatsCounter() {
   const isRtl = locale === "ar"
 
   return (
-    <section className="py-16 md:py-20 bg-on-background px-margin-mobile md:px-margin-desktop">
+    <section className="py-16 md:py-24 bg-neutral-dark px-2.5 md:px-2.5">
       <div className="max-w-max-width mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
           {stats.map((stat) => (
-            <div key={stat.labelAr} className="text-center text-surface">
-              <div className="font-headline text-[48px] md:text-[64px] font-extrabold mb-2 leading-none tracking-tight">
+            <div key={stat.labelAr} className="text-center text-white">
+              <div className="text-[48px] md:text-[64px] font-black mb-2 leading-none tracking-tight">
                 <AnimatedNumber value={stat.value} suffix={stat.suffix} />
               </div>
-              <p className="font-label-sm text-surface/60 uppercase tracking-wider">
+              <p className="text-label-sm text-white/50 uppercase tracking-wider font-bold">
                 {isRtl ? stat.labelAr : stat.labelEn}
               </p>
             </div>

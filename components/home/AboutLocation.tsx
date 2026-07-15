@@ -11,29 +11,32 @@ export default function AboutLocation() {
   const isRtl = locale === "ar"
 
   return (
-    <section className="py-24 md:py-32 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
-      <div className="grid md:grid-cols-2 gap-gutter items-center">
+    <section className="py-24 md:py-32 px-2.5 md:px-2.5 max-w-max-width mx-auto">
+      <div className="grid md:grid-cols-2 gap-4 items-center">
         <ScrollReveal direction={isRtl ? "right" : "left"}>
           <div>
-            <span className="font-label-sm text-primary uppercase tracking-widest block mb-4">
+            <span
+              className="inline-block border border-on-surface/20 text-label-sm text-on-surface uppercase tracking-widest font-bold mb-4"
+              style={{ borderRadius: "var(--radius-full)", padding: "8px 21px" }}
+            >
               {locale === "ar" ? "من نحن" : "About Us"}
             </span>
-            <h2 className="font-headline-lg text-headline-lg mb-8 leading-tight">
+            <h2 className="text-headline-lg text-on-surface mb-8 leading-tight font-black">
               {locale === "ar" ? (
                 <>شريكك في<br />التميز والإبداع</>
               ) : (
                 <>Your Partner in<br />Excellence & Creativity</>
               )}
             </h2>
-            <p className="font-body-lg text-on-surface-variant max-w-md leading-relaxed">
+            <p className="text-body-lg text-on-surface/60 max-w-md leading-relaxed">
               {locale === "ar"
-                ? "شركة وضوح الرؤية للدعاية والإعلان شريك موثوق منذ 15 عاماً، متخصصة في تقديم حلول متكاملة في الدعاية والإعلان وإدارة الفعاليات والطباعة والخدمات اللوجستية. نعمل مع نخبة من العملاء في القطاعين الحكومي والخاص."
-                : "Wodoh Alroya Advertising is a trusted partner for 15 years, specializing in integrated advertising, event management, printing and logistics solutions. We work with top clients in both government and private sectors."}
+                ? "شركة وضوح الرؤية للدعاية والإعلان شريك موثوق منذ 15 عاماً، متخصصة في تقديم حلول متكاملة في الدعاية والإعلان وإدارة الفعاليات والطباعة والخدمات اللوجستية."
+                : "Wodoh Alroya Advertising is a trusted partner for 15 years, specializing in integrated advertising, event management, printing and logistics solutions."}
             </p>
             <div className="mt-8">
               <Link
                 href={`/${locale}/#about`}
-                className="inline-flex items-center gap-2 border-b-2 border-primary pb-1 font-bold uppercase tracking-wider text-primary hover:text-primary-container hover:border-primary-container transition-colors active:scale-[0.98] origin-bottom"
+                className="inline-flex items-center gap-2 border-b-2 border-on-surface pb-1 font-bold uppercase tracking-wider text-label-sm hover:opacity-70 transition-all active:scale-[0.98] origin-bottom"
               >
                 {locale === "ar" ? "اعرف المزيد" : "Learn More"}
                 <ArrowUpRight className="w-5 h-5" />
@@ -44,18 +47,19 @@ export default function AboutLocation() {
 
         <ScrollReveal direction={isRtl ? "left" : "right"}>
           <motion.div
-            className="bg-primary p-12 text-white relative overflow-hidden flex flex-col justify-between min-h-[400px] rounded-lg"
+            className="bg-primary p-10 md:p-12 text-white relative overflow-hidden flex flex-col justify-between min-h-[400px]"
+            style={{ borderRadius: "var(--radius-xl)" }}
             whileHover={{ scale: 1.02 }}
             transition={{ type: "spring", stiffness: 200, damping: 15 }}
           >
             <div className="relative z-10">
-              <span className="text-white/60 font-label-sm uppercase tracking-widest">
+              <span className="text-white/60 text-label-sm uppercase tracking-widest font-bold">
                 {locale === "ar" ? "منذ 2009" : "Since 2009"}
               </span>
-              <h3 className="font-headline-md text-headline-md mt-2 mb-4">
+              <h3 className="text-headline-md mt-2 mb-4 font-black">
                 {locale === "ar" ? "فريق محترف. حلول مبتكرة." : "Professional Team. Innovative Solutions."}
               </h3>
-              <p className="font-body-md opacity-80">
+              <p className="text-body-md opacity-80">
                 {locale === "ar"
                   ? "نحن هنا لتحويل أفكارك إلى واقع ملموس"
                   : "We're here to turn your ideas into reality"}

@@ -34,7 +34,7 @@ export default function ScrollReveal({
           observer.unobserve(entry.target);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.05, rootMargin: "200px 0px" }
     );
 
     if (ref.current) observer.observe(ref.current);
@@ -44,11 +44,11 @@ export default function ScrollReveal({
   const getTransform = () => {
     if (isVisible) return "translate(0, 0)";
     switch (direction) {
-      case "up": return "translate(0, 40px)";
-      case "down": return "translate(0, -40px)";
-      case "left": return "translate(40px, 0)";
-      case "right": return "translate(-40px, 0)";
-      default: return "translate(0, 40px)";
+      case "up": return "translate(0, 30px)";
+      case "down": return "translate(0, -30px)";
+      case "left": return "translate(30px, 0)";
+      case "right": return "translate(-30px, 0)";
+      default: return "translate(0, 30px)";
     }
   };
 
@@ -59,7 +59,7 @@ export default function ScrollReveal({
       style={{
         opacity: isVisible ? 1 : 0,
         transform: getTransform(),
-        transition: "opacity 0.6s ease-out, transform 0.6s ease-out",
+        transition: "opacity 0.8s cubic-bezier(.19, 1, .22, 1), transform 0.8s cubic-bezier(.19, 1, .22, 1)",
       }}
     >
       {children}
